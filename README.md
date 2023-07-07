@@ -62,7 +62,7 @@ Weiterhin läuft auf dem PC ein React-Programm, dass über den Localhost und Por
 ## 4.1 Hardware
 Zur Realisierung des Projektes wurde ein Arduino Nano 33 BLE Sense verwendet.
 Dieser weist eine Reihe von Sensoren auf, unter anderem der von uns benutzte Farbsensor.
-
+Außerdem verwendeten wir noch einen Laptop für das Programmieren und die Simulation des Smartphones
 ## 4.2 Software
 Die Programme wurden wie bereits erwähnt in verschiedenen Programmiersprachen geschrieben.
 
