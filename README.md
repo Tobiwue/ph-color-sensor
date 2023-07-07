@@ -1,4 +1,4 @@
-# PH-Color-Sensor Methoden der Wissensverarbeitung SoSe23 - HTW Berlin FB4 M.SC
+# PH-Color-Sensor Methoden der Wissensverarbeitung SoSe23 - HTW Berlin FB4 M.Sc
 
 # 1 Einführung
 ## 1.1 Motivation
