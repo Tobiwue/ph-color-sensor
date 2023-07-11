@@ -1,4 +1,8 @@
-# PH-Color-Sensor Methoden der Wissensverarbeitung SoSe23 - HTW Berlin FB4 M.Sc
+<style>
+body {
+text-align: justify}
+</style>
+# PH-Color-Sensor - Methoden der Wissensverarbeitung SoSe23 - HTW Berlin FB4 M.Sc
 
 # 1 Einführung
 ## 1.1 Motivation
@@ -16,63 +20,51 @@ Parallel dazu wurde eine WebApp erstellt, in welcher aufbereitete Daten zu den i
 # 2 Daten
 
 ## 2.1 Datenbeschaffung Farben
-Znächst wurden analoge PH-Teststreifen, die Werte im Bereich von 4,5 bis 9 auslesen können, gekauft.[1] Es wurde sich für diese PH-Streifen entschieden, da sie einen realistischen Wertebereich umfassen und feingradiger sind, als PH-Streifen, die das gesamte Spektrum erfassen können sollen. Auf der Verpackung der PH-Streifen sind unterschiedliche Farben verschiedenen PH-Werten zugewiesen. Mithilfe eines Python-Programmes (QUELLE) konnte ein Modell trainiert werden, das über den Arduino Farbsensor die entsprechende Farbe erkennt und einem PH-Wert zuordnet. Dabei wurden als Trainings- und Testdaten die Messungen der möglichen Werte auf der Verpackung der Teststreifen verwendet. 
+Znächst wurden analoge PH-Teststreifen, die Werte im Bereich von 4,5 bis 9 auslesen können, gekauft.^[ECENSE-Store (2018, 27. März). *ECENCE pH Teststreifen 100 Stck, Lackmus Testpapier, Messbereich 4,5-9, Indikator Universalpapier, Säuretest für Aquarien, Trinkwasser.* URL: https://www.amazon.de/dp/B07CCZSV6C/ref=twister_B095SV65FG?_encoding=UTF8&psc=1 (abgerufen am 24.06.2023)] Es wurde sich für diese PH-Streifen entschieden, da sie einen realistischen Wertebereich umfassen und feingradiger sind, als PH-Streifen, die das gesamte Spektrum erfassen können sollen. Auf der Verpackung der PH-Streifen sind unterschiedliche Farben verschiedenen PH-Werten zugewiesen. Mithilfe eines Python-Programmes (QUELLE) konnte ein Modell trainiert werden, das über den Arduino Farbsensor die entsprechende Farbe erkennt und einem PH-Wert zuordnet. Dabei wurden als Trainings- und Testdaten die Messungen der möglichen Werte auf der Verpackung der Teststreifen verwendet. 
 
 ## 2.2 Datenbeschaffung idealer PH-Werte
-Die Daten zu den idealen Ph-Werten verschiedener Pflanzen wurde einer Webseite entnommen, die eben diese Informationen für (Hobby-)Gärtner bereitstellen.[2] Die dort hinterlegten Werte sind gruppiert in Kategorien und beinhalten jeweils eine Spanne für den idealen PH-Wert der einzelnen Pflanzen. Um die Daten in der WebApp nutzbar zu machen, wurden diese zunächst aus der Website in Microsoft Excel herauskopiert, dort die PH-Wert-Spannen getrennt, sodass ein Minimal- und ein Maximal-Wert entsteht und daraufhin als CSV-Datei gespeichert. Daraufhin konnte dieses über ein Python-Programm in ein JSON-Dateiformat konvertiert werden.[3] Die einzelnen Werte wurden nach Ausführung des Programms in manuell ihre Kategorien eingeteilt und die gesamte Datei im Verzeichnis der Applikation gespeichert:
-```
-import csv
 
-new_data_dict = {}
-label_dict = {}
-with open("https://raw.githubusercontent.com/Tobiwue/ph-color-sensor/master/data/pflanzen_idealwerte.csv", 'r') as data_file:
-    data = csv.DictReader(data_file, delimiter=";")
-    for row in data:
-        item = new_data_dict.get(row["Pflanze"], dict())
-        item["Pflanze"] = row["Pflanze"]
-        item["PH_MIN"] = row["PH_MIN"]
-        item["PH_MAX"] = row["PH_MAX"]
-        print(item)
-```
+Die idealen pH-Werte für verschiedene Pflanzen wurden von einer Webseite entnommen, die speziell für (Hobby-)Gärtner Informationen zu diesem Thema bereitstellt^[Jeske, E. (2023, 17. April). *pH-Wert Pflanzen-Tabelle: Der richtige Boden für deine Pflanze.* URL: https://liebe-zum-garten.de/ph-wert-pflanzen-tabelle/ (abgerufen am 12.06.2023)]. Die dort verfügbaren Daten sind gruppiert nach Kategorien und enthalten jeweils einen Bereich für den idealen pH-Wert jeder Pflanze. Um diese Daten in der Webanwendung nutzbar zu machen, wurden sie zunächst aus der Webseite kopiert und in Microsoft Excel importiert. Dort wurden die pH-Wert-Bereiche getrennt, um Minimal- und Maximalwerte zu erhalten, und anschließend als CSV-Datei gespeichert. Diese CSV-Datei wurde dann mithilfe eines Python-Programms in das JSON-Dateiformat konvertiert^[Kumar, P. (2022, 22. Januar). *Convert CSV to JSON Using Python – A Beginner’s Guide.* URL: https://www.askpython.com/python/examples/convert-csv-to-json (abgerufen am 18.06.2023)]. Nach der Ausführung des Programms wurden die einzelnen Werte manuell den entsprechenden Kategorien zugeordnet und die vollständige Datei im Verzeichnis der Webanwendung gespeichert.
 
 # 3 Konzept und Realisierung
-Für das Projekt haben wurde ein Konzept erstellt, welches verschiedene Komponenten und die Kommunikation zwischen ihnen beinhaltet. Folgende Abbildung stellt dies einmal schematisch dar:
+Für das Projekt wurde ein Konzept erstellt, welches verschiedene Komponenten und die Kommunikation zwischen ihnen beinhaltet. Folgende Abbildung stellt dies schematisch dar:
+
 ![alt text](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/schema.svg?raw=true)
-Demnach muss zunächst der PH-Teststreifen verwendet werden, um den PH-Wert des Bodens einer Pflanze zu messen. Daraufhin wird dieser Streifen über den Farbsensor des Arduinos gehalten, sodass die Farbe erkannt werden kann. Durch eine Verbindung über ein USB-Kabel zwischen dem Arduino und einem Notebook, wobei bei dem Notebook der USB-Port COM10 verwendet werden muss, können die gemessenen Daten ausgetauscht werden. Auf dem Notebook läuft ein weiteres Python-Programm, welches auf den Port COM10 hört und alle eingehenden Werte in eine Datei schreibt, wobei stets der neuste Wert den jeweils älteren überschreibt: [4]
 
-```
-import serial
-import json
+Demnach muss zunächst der PH-Teststreifen verwendet werden, um den PH-Wert des Bodens einer Pflanze zu messen. Daraufhin wird dieser Streifen über den Farbsensor des Arduinos gehalten, sodass die Farbe erkannt werden kann. Durch eine Verbindung über ein USB-Kabel zwischen dem Arduino und einem Notebook, wobei bei dem Notebook der USB-Port COM10 verwendet werden muss, können die gemessenen Daten ausgetauscht werden. Auf dem Notebook läuft ein weiteres Python-Programm, welches auf den Port COM10 hört und alle eingehenden Werte in eine Datei schreibt, wobei stets der neuste Wert den jeweils älteren überschreibt^[OpenAI (2023, 03. Juli). Abwandlung der Antwort auf die Frage: *Wie könnte ein Python Programm aussehen, dass auf COM10 hört und alle Daten, die dort eingehen, über einen Websocket Server abrufbrar macht.*].
 
-COM_PORT = 'COM10'
-BAUD_RATE = 9600
-
-with serial.Serial(COM_PORT, BAUD_RATE) as ser:
-    while True:
-        if ser.in_waiting > 0:
-            data = ser.readline().decode().strip()
-            json_data = {"ph_wert": data}
-            json_object = json.dumps(json_data, indent=1)
-            with open("https://raw.githubusercontent.com/Tobiwue/ph-color-sensor/master/data/gemessen.txt", 'w') as f:
-                f.write(json_object)
-```
-Weiterhin läuft auf dem PC ein React-Programm, dass über den Localhost und Port 3000 eine WebApp bereitstellt, die in Chrome als Smartphone-App simuliert werden kann. In dieser gibt es zwei primäre Ansichten. Zum einen eine Übersicht aller idealen PH-Werte, zum anderen eine Auswahl, bei welcher die Pflanze ausgewählt werden kann, für die der PH- Wert gemessen wurde. Nach dieser Auswahl und dem klick auf dem Button "..." wird der gemessene Wert aus der Datei gemessen.txt mit den idealwerten verglichen, sodass ggf. entsprechende Handlungsbedarfe angegeben werden können. (BILDER!)
+Weiterhin läuft auf dem PC ein React-Programm, dass über den Localhost und Port 3000 eine WebApp bereitstellt, die in Chrome als Smartphone-App simuliert werden kann. In dieser gibt es zwei primäre Ansichten. Zum einen eine Übersicht aller idealen PH-Werte, zum anderen eine Auswahl, bei welcher die Pflanze ausgewählt werden kann, für die der PH-Wert gemessen wurde. Nach dieser Auswahl und dem klick auf dem Button *auswählen* wird der gemessene Wert aus der Datei *gemessen.json* mit den idealwerten verglichen, sodass ggf. entsprechende Handlungsbedarfe angegeben werden können.
 
 # 4 Setup
 ## 4.1 Hardware
 Zur Realisierung des Projektes wurde ein Arduino Nano 33 BLE Sense verwendet.
 Dieser weist eine Reihe von Sensoren auf, unter anderem der von uns benutzte Farbsensor.
 Außerdem verwendeten wir noch einen Laptop für das Programmieren und die Simulation des Smartphones
+
 ## 4.2 Software
 Die Programme wurden wie bereits erwähnt in verschiedenen Programmiersprachen geschrieben.
 
-Die Webapp zur Simulation des Smartphones beinhaltet React.js und somit JavaScript, CSS und HTML. Es wurden weiterhin die Pakete Primereact[5] für Designkomponenten und react-router-dom für die Erstellung der WebApp als Single Page Application[6] verwendet. Die Komponenten wurden unter Verwendung der jeweiligen Dokumentationen der Bibliotheken erstellt.[7] Die beiden Python-Programme wurden entsprechend mit Python und den Bibliotheken serial, json und csv ... erstellt
+Die Webapp zur Simulation des Smartphones beinhaltet *React.js* und somit JavaScript, CSS und HTML. Es wurden weiterhin die Pakete *PrimeReact* für Designkomponenten^[PrimeReact (o.D.). *DropDown.* URL: https://primereact.org/dropdown/ (abgerufen am 19.06.2023)] ^[PrimeReact (o.D.). *Card.* URL: https://primereact.org/card/ (abgerufen am 26.06.2023)] ^[PrimeReact (o.D.). *Button.* URL: https://primereact.org/button/ (abgerufen am 19.06.2023)] ^[PrimeReact (o.D.). *ProgressSpinner.* URL: https://primereact.org/progressspinner/ (abgerufen am 03.07.2023)] ^[PrimeReact (o.D.). *DataTable.* URL: https://primereact.org/datatable/ (abgerufen am 19.06.2023)] ^[PrimeReact (o.D.). *SideBar.* URL: https://primereact.org/sidebar/ (abgerufen am 19.06.2023)] ^[PrimeReact (o.D.). *Menu.* URL: https://primereact.org/menu/ (abgerufen am 19.06.2023)] und *react-router-dom* für die Erstellung der WebApp als Single Page Application^[React Router (o.D.). *useNavigate.* URL: https://reactrouter.com/en/main/hooks/use-navigate (abgerufen am 26.06.2023)] ^[React Router (o.D.). *useLocation.* URL: https://reactrouter.com/en/main/hooks/use-location (abgerufen am 26.06.2023)] verwendet. 
+
+Die React-App besteht aus verschiedenen Komponenten, die für die Erstellung einer React-Webanwendung typisch sind. In der Datei *App.js* werden zunächst die URLs definiert, über die verschiedene Ansichten erreichbar sein sollen. Diese Datei wird dann in *index.js* aufgerufen, um die App zu erzeugen.
+
+Die Komponenten *Pflanzen_Ansicht.js*, *Pflanzen_Uebersicht.js* und *Pflanzen_Auswahl.js* enthalten jeweils die Komponenten und Logik für die zugehörigen Ansichten. In *Pflanzen_Uebersicht.js* gibt es beispielsweise eine Tabelle, in der alle Idealwerte aus der Datei *pflanzen_data.json* dargestellt werden. In *Pflanzen_Auswahl.js* befindet sich ein Dropdown-Menü, mit dem eine Pflanzenart aus den Daten ausgewählt und über einen entsprechenden Button abgesendet werden kann. Dadurch kann in *Pflanzen_Ansicht.js* die Bewertung in Textform ausgegeben werden.
+
+Mithilfe eines Seitenmenüs können die verschiedenen Ansichten angesteuert werden, und das App-Logo führt ebenfalls zur Auswahl-Seite zurück, da diese als Startseite der Anwendung verwendet wird, um eine einfache Bedienung zu ermöglichen.
 
 Der Code für den Arduino wurde in der Arduino IDE in C geschrieben.
 Zusätzlich wurde das vorher trainierte Model in Python entwickelt.
 
 # 5 Projektergebnisse
-Screenshots der App (rot, grün, gelb) + wie lange alles dauert? + wie akkurat es tatsächlich ist
+Die Screenshots der App zeigen die Darstellung von Hinweisen für verschiedene PH-Wert-Bereiche. Wenn die App eine Eingabe zur Auswahl der Pflanzenart erhält und diese ausgewertet werden soll, wird anhand der idealen PH-Werte für die jeweilige Pflanzenart berechnet, ob der gemessene Wert sich im Idealbereich befindet oder nicht. Wenn der Wert im Idealbereich liegt, wird ein grüner Hinweis angezeigt. Wenn der PH-Wert innerhalb von &plusmn;0,5 des Idealintervalls liegt, wird im gelben Fenster darauf hingewiesen, dass leichte Anpassungen erforderlich sein könnten. Wenn der Wert außerhalb dieses erweiterten Intervalls liegt, besteht ein größerer Handlungsbedarf, der rot gekennzeichnet ist. Damit die Nutzerinnen und Nutzer sofort erfahren, welche Schritte zur Verbesserung der PH-Werte führen können, werden entsprechende Handlungsempfehlungen angezeigt. Folgende Screenshots der App zeigen die Darstellung der Hinweisen für verschiedene PH-Wert-Bereich:
+
+![alt text](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_grün.png?raw=true)
+![alt text](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_gelb.png?raw=true)
+![alt text](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_rot.png?raw=true)
+
+Die Dauer des gesamten Prozesses hängt von verschiedenen Faktoren ab, darunter die Reaktionszeit der App und die Geschwindigkeit der Datenverarbeitung. Obwohl keine großen Datenmengen verarbeitet werden müssen, wurde bewusst ein Ladesymbol implementiert, das für eine bestimmte Zeit von drei Sekunden angezeigt wird, bevor die Ergebnisseite geladen wird. Diese Entscheidung wurde getroffen, um sicherzustellen, dass während dieser Zeit der pH-Streifen klar über den Sensor gehalten werden kann und der Farbwert so genau wie möglich ermittelt werden kann. Indem eine angemessene Wartezeit eingerichtet wird, wird ermöglicht, dass die Datenverarbeitung abgeschlossen wird und genügend Zeit für eine genaue Auswertung der PH-Werte zur Verfügung steht.
+
+Die App ist ................ akkurat?
 
 
 # 6 Troubleshooting
@@ -93,18 +85,18 @@ Bei dem Arduino BLE 33 Sense mussten wir feststellen, dass für unseren vorherig
 Wir haben also durch die Inkompatiblen Librarys unsere USB Ports überschrieben wodurch der Arduino die Kommunikation mit dem PC verloren hat.
 Dadurch war dieser nicht mehr zu gebrauchen.
 
-## 6.4 Dateiformate
-- viele verschiedene Dateiformate welche die Übersetzung und Kommunikation erschweren
+## 6.4 Dateiformate und -übertragung
+Für die Integration der vom Arduino erfassten Sensordaten in die Webanwendung waren verschiedene Aspekte zu berücksichtigen, darunter der Übertragungsweg und das Datenformat. Eine anfängliche Idee bestand darin, die Daten an einen Server zu senden, z. B. einen lokalen Express-Server von Node.js. Allerdings stellte sich die Umsetzung dieser Lösung als schwierig heraus. Die Applikation wurde zwar ebenso über den lokalen Server gehostet, das Grundgerüst der navigierung zwischen den verschiedenen Ansichten und der Datenübertragung innerhalb der Applikation erfolgte über Funktionen des Pakets *react-router-dom*, welche nicht mehr nutzbar waren, da sie über URLs ihre Funktionalität erfüllt hatten. Da der Server selbst über URLs arbeitete, beispielsweise für POST- oder GET-Anfragen, konnte er die Navigations-URLs nicht auflösen. Angesichts der begrenzten verfügbaren Zeit wurde daher eine alternative Lösung in Betracht gezogen.
+
+Da die Datenübertragung auch über eine kabelgebundene Verbindung wie ein USB-Kabel erfolgen kann, das mit einem Laptop verbunden ist, können die Daten in entsprechenden Programmen verwendet werden. Gängige Programme dafür sind beispielsweise die Arduino IDE^[Arduino (o.D.). *SerialTransfer.* URL: https://www.arduino.cc/reference/en/libraries/serialtransfer/ (abgerufen am 03.07.2023)] oder PuTTY^[Mechatrofice (o.D.). *Save Serial data to a text file – Arduino, Processing, PuTTY.* URL: https://mechatrofice.com/arduino/save-serial-data-to-a-text-file-arduino-processing-putty (abgerufen am 03.07.2023)].
+
+Des Weiteren mussten die Daten zu den idealen pH-Werten von der Website in einem Format vorliegen, das von der Webanwendung verarbeitet werden kann. Eine Möglichkeit bestand darin, eine kleine Datenbank einzurichten, aus der die Daten abgefragt werden könnten. Die Datenmenge ist jedoch relativ gering und es werden keine großen Veränderungen oder Erweiterungen erwartet, da alle gängigen Pflanzenarten enthalten sind, die für Hobbygärtner, für die diese Anwendung entwickelt wurde, relevant sein könnten. Somit wurde entschieden, die Daten in einer JSON-Datei abzulegen, die von der React-Applikation ohne großen Aufwand genutzt werden kann. Die Konvertierung der Tabellendaten in ein geeignetes Format wie CSV und schließlich in eine gewünschte JSON-Dateistruktur stellte jedoch eine unerwartete Hürde dar, die mehrere Stunden Arbeit erforderte, um sie zu überwinden.
 
 # 7 Lessons Learned
-## 7.1 Farberkennung
-## 7.2
+
+# 8 Ausblick
+Der wichtigste nächste Schritt besteht darin, eine vollständige und korrekte Implementierung des pH-Messgeräts zu erreichen. Da der Erfolg dieses Vorhabens jedoch von der fehlerfreien Funktionsweise des pH-Sensors abhängt, ist nur begrenzt Einfluss auf den Erfolg möglich.
+
+In einer idealen Anwendung könnten zusätzlich zu den Überprüfungen der aktuellen pH-Messwerte auch vergangene Messwerte gespeichert werden, um einen Verlauf einsehbar zu machen. Darüber hinaus könnte eine Funktion implementiert werden, um eigene Pflanzenprofile zu speichern, möglicherweise inklusive eigener aufgenommener Bilder. Das Hosting der Anwendung ermöglicht es verschiedenen Personen, sie zu nutzen und innerhalb der Community Wissen auszutauschen, beispielsweise durch die Integration von Forum-Funktionen. Dies wäre eine positive Weiterentwicklung der Anwendung. 
 
 # Quellen
-[1] ECENSE-Store (2018, 27. März). *ECENCE pH Teststreifen 100 Stck, Lackmus Testpapier, Messbereich 4,5-9, Indikator Universalpapier, Säuretest für Aquarien, Trinkwasser.* URL: https://www.amazon.de/dp/B07CCZSV6C/ref=twister_B095SV65FG?_encoding=UTF8&psc=1 (abgerufen am 24.06.2023)
-[2] Jeske, E. (2023, 17. April). *pH-Wert Pflanzen-Tabelle: Der richtige Boden für deine Pflanze.* URL: https://liebe-zum-garten.de/ph-wert-pflanzen-tabelle/ (abgerufen am 12.06.2023)
-[3] vgl. Kumar, P. (2022, 22. Januar). *Convert CSV to JSON Using Python – A Beginner’s Guide.* URL: https://www.askpython.com/python/examples/convert-csv-to-json (abgerufen am 18.06.2023)
-[4] vgl. OpenAI (2023, 03. Juli). Antwort auf die Frage: *Wie könnte ein Python Programm aussehen, dass auf COM10 hört und alle Daten, die dort eingehen, über einen Websocket Server abrufbrar machen*
-[5] Bib primereact
-[6] Bib react-router-dom
-[7] Doc primereact
