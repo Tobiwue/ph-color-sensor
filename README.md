@@ -29,7 +29,7 @@ Die idealen pH-Werte für verschiedene Pflanzen wurden von einer Webseite entnom
 # 3 Konzept und Realisierung
 Für das Projekt wurde ein Konzept erstellt, welches verschiedene Komponenten und die Kommunikation zwischen ihnen beinhaltet. Folgende Abbildung stellt dies schematisch dar:
 
-![alt text](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/schema.png?raw=true)
+![Konzept Funktionsweise PH_Messgeräts und Ausgabe-WebApp](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/Konzept_PH_Messer.png?raw=true)
 
 Demnach muss zunächst der PH-Teststreifen verwendet werden, um den PH-Wert des Bodens einer Pflanze zu messen. Daraufhin wird dieser Streifen über den Farbsensor des Arduinos gehalten, sodass die Farbe erkannt werden kann. Durch eine Verbindung über ein USB-Kabel zwischen dem Arduino und einem Notebook, wobei bei dem Notebook der USB-Port COM10 verwendet werden muss, können die gemessenen Daten ausgetauscht werden. Auf dem Notebook läuft ein weiteres Python-Programm, welches auf den Port COM10 hört und alle eingehenden Werte in eine Datei schreibt, wobei stets der neuste Wert den jeweils älteren überschreibt[^4].
 
@@ -58,9 +58,9 @@ Zusätzlich wurde das vorher trainierte Model in Python entwickelt.
 # 5 Projektergebnisse
 Die Screenshots der App zeigen die Darstellung von Hinweisen für verschiedene PH-Wert-Bereiche. Wenn die App eine Eingabe zur Auswahl der Pflanzenart erhält und diese ausgewertet werden soll, wird anhand der idealen PH-Werte für die jeweilige Pflanzenart berechnet, ob der gemessene Wert sich im Idealbereich befindet oder nicht. Wenn der Wert im Idealbereich liegt, wird ein grüner Hinweis angezeigt. Wenn der PH-Wert innerhalb von &plusmn;0,5 des Idealintervalls liegt, wird im gelben Fenster darauf hingewiesen, dass leichte Anpassungen erforderlich sein könnten. Wenn der Wert außerhalb dieses erweiterten Intervalls liegt, besteht ein größerer Handlungsbedarf, der rot gekennzeichnet ist. Damit die Nutzerinnen und Nutzer sofort erfahren, welche Schritte zur Verbesserung der PH-Werte führen können, werden entsprechende Handlungsempfehlungen angezeigt. Folgende Screenshots der App zeigen die Darstellung der Hinweisen für verschiedene PH-Wert-Bereich:
 
-![alt text](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_grün.PNG?raw=true)
-![alt text](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_gelb.PNG?raw=true)
-![alt text](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_rot.PNG?raw=true)
+<img src="https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_grün.PNG" width="300">
+<img src="https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_gelb.PNG" width="300">
+<img src="https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_rot.PNG" width="300">
 
 Die Dauer des gesamten Prozesses hängt von verschiedenen Faktoren ab, darunter die Reaktionszeit der App und die Geschwindigkeit der Datenverarbeitung. Obwohl keine großen Datenmengen verarbeitet werden müssen, wurde bewusst ein Ladesymbol implementiert, das für eine bestimmte Zeit von drei Sekunden angezeigt wird, bevor die Ergebnisseite geladen wird. Diese Entscheidung wurde getroffen, um sicherzustellen, dass während dieser Zeit der pH-Streifen klar über den Sensor gehalten werden kann und der Farbwert so genau wie möglich ermittelt werden kann. Indem eine angemessene Wartezeit eingerichtet wird, wird ermöglicht, dass die Datenverarbeitung abgeschlossen wird und genügend Zeit für eine genaue Auswertung der PH-Werte zur Verfügung steht.
 
