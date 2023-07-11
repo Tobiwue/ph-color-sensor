@@ -1,7 +1,3 @@
-<style>
-body {
-text-align: justify}
-</style>
 # PH-Color-Sensor - Methoden der Wissensverarbeitung SoSe23 - HTW Berlin FB4 M.Sc
 
 # 1 Einführung
@@ -58,9 +54,11 @@ Zusätzlich wurde das vorher trainierte Model in Python entwickelt.
 # 5 Projektergebnisse
 Die Screenshots der App zeigen die Darstellung von Hinweisen für verschiedene PH-Wert-Bereiche. Wenn die App eine Eingabe zur Auswahl der Pflanzenart erhält und diese ausgewertet werden soll, wird anhand der idealen PH-Werte für die jeweilige Pflanzenart berechnet, ob der gemessene Wert sich im Idealbereich befindet oder nicht. Wenn der Wert im Idealbereich liegt, wird ein grüner Hinweis angezeigt. Wenn der PH-Wert innerhalb von &plusmn;0,5 des Idealintervalls liegt, wird im gelben Fenster darauf hingewiesen, dass leichte Anpassungen erforderlich sein könnten. Wenn der Wert außerhalb dieses erweiterten Intervalls liegt, besteht ein größerer Handlungsbedarf, der rot gekennzeichnet ist. Damit die Nutzerinnen und Nutzer sofort erfahren, welche Schritte zur Verbesserung der PH-Werte führen können, werden entsprechende Handlungsempfehlungen angezeigt. Folgende Screenshots der App zeigen die Darstellung der Hinweisen für verschiedene PH-Wert-Bereich:
 
+<p align="middle">
 <img src="https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_grün.PNG" width="300">
 <img src="https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_gelb.PNG" width="300">
 <img src="https://github.com/Tobiwue/ph-color-sensor/blob/pictures/PH_rot.PNG" width="300">
+</p>
 
 Die Dauer des gesamten Prozesses hängt von verschiedenen Faktoren ab, darunter die Reaktionszeit der App und die Geschwindigkeit der Datenverarbeitung. Obwohl keine großen Datenmengen verarbeitet werden müssen, wurde bewusst ein Ladesymbol implementiert, das für eine bestimmte Zeit von drei Sekunden angezeigt wird, bevor die Ergebnisseite geladen wird. Diese Entscheidung wurde getroffen, um sicherzustellen, dass während dieser Zeit der pH-Streifen klar über den Sensor gehalten werden kann und der Farbwert so genau wie möglich ermittelt werden kann. Indem eine angemessene Wartezeit eingerichtet wird, wird ermöglicht, dass die Datenverarbeitung abgeschlossen wird und genügend Zeit für eine genaue Auswertung der PH-Werte zur Verfügung steht.
 
