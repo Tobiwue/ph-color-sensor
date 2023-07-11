@@ -101,32 +101,32 @@ In einer idealen Anwendung könnten zusätzlich zu den Überprüfungen der aktue
 
 # Quellen
 
-[^1] ECENSE-Store (2018, 27. März). *ECENCE pH Teststreifen 100 Stck, Lackmus Testpapier, Messbereich 4,5-9, Indikator Universalpapier, Säuretest für Aquarien, Trinkwasser.* URL: https://www.amazon.de/dp/B07CCZSV6C/ref=twister_B095SV65FG?_encoding=UTF8&psc=1 (abgerufen am 24.06.2023)
+[^1]: ECENSE-Store (2018, 27. März). *ECENCE pH Teststreifen 100 Stck, Lackmus Testpapier, Messbereich 4,5-9, Indikator Universalpapier, Säuretest für Aquarien, Trinkwasser.* URL: https://www.amazon.de/dp/B07CCZSV6C/ref=twister_B095SV65FG?_encoding=UTF8&psc=1 (abgerufen am 24.06.2023)
 
-[^2] Jeske, E. (2023, 17. April). *pH-Wert Pflanzen-Tabelle: Der richtige Boden für deine Pflanze.* URL: https://liebe-zum-garten.de/ph-wert-pflanzen-tabelle/ (abgerufen am 12.06.2023)
+[^2]: Jeske, E. (2023, 17. April). *pH-Wert Pflanzen-Tabelle: Der richtige Boden für deine Pflanze.* URL: https://liebe-zum-garten.de/ph-wert-pflanzen-tabelle/ (abgerufen am 12.06.2023)
 
-[^3] Kumar, P. (2022, 22. Januar). *Convert CSV to JSON Using Python – A Beginner’s Guide.* URL: https://www.askpython.com/python/examples/convert-csv-to-json (abgerufen am 18.06.2023)
+[^3]: Kumar, P. (2022, 22. Januar). *Convert CSV to JSON Using Python – A Beginner’s Guide.* URL: https://www.askpython.com/python/examples/convert-csv-to-json (abgerufen am 18.06.2023)
 
-[^4] OpenAI (2023, 03. Juli). Abwandlung der Antwort auf die Frage: *Wie könnte ein Python Programm aussehen, dass auf COM10 hört und alle Daten, die dort eingehen, über einen Websocket Server abrufbrar macht.*
+[^4]: OpenAI (2023, 03. Juli). Abwandlung der Antwort auf die Frage: *Wie könnte ein Python Programm aussehen, dass auf COM10 hört und alle Daten, die dort eingehen, über einen Websocket Server abrufbrar macht.*
 
-[^5] PrimeReact (o.D.). *Button.* URL: https://primereact.org/button/ (abgerufen am 19.06.2023)
+[^5]: PrimeReact (o.D.). *Button.* URL: https://primereact.org/button/ (abgerufen am 19.06.2023)
 
-[^6] PrimeReact (o.D.). *Card.* URL: https://primereact.org/card/ (abgerufen am 26.06.2023)
+[^6]: PrimeReact (o.D.). *Card.* URL: https://primereact.org/card/ (abgerufen am 26.06.2023)
 
-[^7] PrimeReact (o.D.). *DataTable.* URL: https://primereact.org/datatable/ (abgerufen am 19.06.2023)
+[^7]: PrimeReact (o.D.). *DataTable.* URL: https://primereact.org/datatable/ (abgerufen am 19.06.2023)
 
-[^8] PrimeReact (o.D.). *DropDown.* URL: https://primereact.org/dropdown/ (abgerufen am 19.06.2023
+[^8]: PrimeReact (o.D.). *DropDown.* URL: https://primereact.org/dropdown/ (abgerufen am 19.06.2023
 
-[^9] PrimeReact (o.D.). *Menu.* URL: https://primereact.org/menu/ (abgerufen am 19.06.2023)
+[^9]: PrimeReact (o.D.). *Menu.* URL: https://primereact.org/menu/ (abgerufen am 19.06.2023)
 
-[^10] PrimeReact (o.D.). *ProgressSpinner.* URL: https://primereact.org/progressspinner/ (abgerufen am 03.07.2023) 
+[^10]: PrimeReact (o.D.). *ProgressSpinner.* URL: https://primereact.org/progressspinner/ (abgerufen am 03.07.2023) 
 
-[^11] PrimeReact (o.D.). *SideBar.* URL: https://primereact.org/sidebar/ (abgerufen am 19.06.2023)
+[^11]: PrimeReact (o.D.). *SideBar.* URL: https://primereact.org/sidebar/ (abgerufen am 19.06.2023)
 
-[^12] React Router (o.D.). *useNavigate.* URL: https://reactrouter.com/en/main/hooks/use-navigate (abgerufen am 26.06.2023)
+[^12]: React Router (o.D.). *useNavigate.* URL: https://reactrouter.com/en/main/hooks/use-navigate (abgerufen am 26.06.2023)
 
-[^13] React Router (o.D.). *useLocation.* URL: https://reactrouter.com/en/main/hooks/use-location (abgerufen am 26.06.2023)
+[^13]: React Router (o.D.). *useLocation.* URL: https://reactrouter.com/en/main/hooks/use-location (abgerufen am 26.06.2023)
 
-[^14] Arduino (o.D.). *SerialTransfer.* URL: https://www.arduino.cc/reference/en/libraries/serialtransfer/ (abgerufen am 03.07.2023)
+[^14]: Arduino (o.D.). *SerialTransfer.* URL: https://www.arduino.cc/reference/en/libraries/serialtransfer/ (abgerufen am 03.07.2023)
 
-[^15] Mechatrofice (o.D.). *Save Serial data to a text file – Arduino, Processing, PuTTY.* URL: https://mechatrofice.com/arduino/save-serial-data-to-a-text-file-arduino-processing-putty (abgerufen am 03.07.2023)
+[^15]: Mechatrofice (o.D.). *Save Serial data to a text file – Arduino, Processing, PuTTY.* URL: https://mechatrofice.com/arduino/save-serial-data-to-a-text-file-arduino-processing-putty (abgerufen am 03.07.2023)
