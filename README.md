@@ -27,18 +27,31 @@ Für das Projekt wurde ein Konzept erstellt, welches verschiedene Komponenten un
 
 ![Konzept Funktionsweise PH_Messgeräts und Ausgabe-WebApp](https://github.com/Tobiwue/ph-color-sensor/blob/pictures/Konzept_PH_Messer.png?raw=true)
 
-Demnach muss zunächst der PH-Teststreifen verwendet werden, um den PH-Wert des Bodens einer Pflanze zu messen. Daraufhin wird dieser Streifen über den Farbsensor des Arduinos gehalten, sodass die Farbe erkannt werden kann. Durch eine Verbindung über ein USB-Kabel zwischen dem Arduino und einem Notebook, wobei bei dem Notebook der USB-Port COM10 verwendet werden muss, können die gemessenen Daten ausgetauscht werden. Auf dem Notebook läuft ein weiteres Python-Programm, welches auf den Port COM10 hört und alle eingehenden Werte in eine Datei schreibt, wobei stets der neuste Wert den jeweils älteren überschreibt[^4].
+Demnach muss zunächst der PH-Teststreifen verwendet werden, um den PH-Wert des Bodens einer Pflanze zu messen. Daraufhin wird dieser Streifen über den Farbsensor des Arduinos gehalten, sodass die Farbe erkannt werden kann. Durch die Verbindung über ein USB-Kabel zwischen dem Arduino und einem Notebook, können die gemessenen Daten ausgetauscht werden. Auf dem Notebook läuft ein Python-Programm, welches auf den Port COM10 hört und alle eingehenden Werte in eine Datei schreibt, wobei stets der neuste Wert den jeweils älteren überschreibt[^4].
 
-Weiterhin läuft auf dem PC ein React-Programm, dass über den Localhost und Port 3000 eine WebApp bereitstellt, die in Chrome als Smartphone-App simuliert werden kann. In dieser gibt es zwei primäre Ansichten. Zum einen eine Übersicht aller idealen PH-Werte, zum anderen eine Auswahl, bei welcher die Pflanze ausgewählt werden kann, für die der PH-Wert gemessen wurde. Nach dieser Auswahl und dem klick auf dem Button *auswählen* wird der gemessene Wert aus der Datei *gemessen.json* mit den idealwerten verglichen, sodass ggf. entsprechende Handlungsbedarfe angegeben werden können.
+Weiterhin läuft auf dem PC ein React-Programm, dass über den Localhost und Port 3000 eine WebApp bereitstellt, die in Chrome als Smartphone-App simuliert werden kann. In dieser gibt es zwei primäre Ansichten. Zum einen eine Übersicht aller idealen PH-Werte durch eine Datenbank, zum anderen eine Auswahl, bei welcher die Pflanze ausgewählt werden kann, für die der PH-Wert gemessen wurde. Nach dieser Auswahl und dem klick auf dem Button *auswählen* wird der gemessene Wert aus der Datei *gemessen.json* mit den idealwerten verglichen, sodass ggf. entsprechende Handlungsbedarfe angegeben werden können.
 
 # 4 Setup
 ## 4.1 Hardware
 Zur Realisierung des Projektes wurde ein Arduino Nano 33 BLE Sense verwendet.
 Dieser weist eine Reihe von Sensoren auf, unter anderem der von uns benutzte Farbsensor.
-Außerdem verwendeten wir noch einen Laptop für das Programmieren und die Simulation des Smartphones
+Außerdem verwendeten wir noch ein Notebook für das Programmieren und die Simulation des Smartphones
 
 ## 4.2 Software
 Die Programme wurden wie bereits erwähnt in verschiedenen Programmiersprachen geschrieben.
+
+Für die Datenaufnahme der PH-Farbwerte wurde das Programm object_color_capture.ino aus dem [TensorFlowLiteTutorials Github]([url](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/FruitToEmoji)) verwendet. Mithilfe dieser Anwendung und der Arduino Cloud, konnte die Farbskala der PH-Wert-Messstreifen aufgenommen werden. Dafür wurde von den verschiedenen Farben ein Foto gemacht und anschließend auf dem Notebook in Großformat ausgegeben. Dann wurde der Farbsensor über die gesamte Fläche des Bildes gehalten um eine möglichst große Datenmenge zu erhalten. Die auf dem Serial Monitor ausgegebenen RGB Werte wurden in eine CSV Datei übertragen, um diese späte durch ein neuronales Netzwerk zu verwerten.
+
+Für die Datenaufbereitung wurde die FruitToEmoji Google Colaboratory Seite https://colab.research.google.com/github/arduino/ArduinoTensorFlowLiteTutorials/blob/master/FruitToEmoji/FruitToEmoji.ipynb
+verwendet. Auf der Google Colaboratory Seite konnten die vorher erstellten csv Dateien hochgeladen werden und werden aufbereitet. Dabei werden eventuelle NULL Werte entfernt und die Menge an Daten werden für die einzelnen Skalenwerte gespeichert. Außerdem werden die Werte randomisiert, um den Lerneffekt der später verwendeten API zu verstärken. 
+
+Die nun aufbereiteten Daten können nun durch die [Keras API]([url](https://www.tensorflow.org/guide/keras)) verarbeitet werden und können in ein, durch den Arduino auslesbares, Model geschrieben werden. Dafür haben wir die Epochen Anzahl auf 600 und die Batchzahl auf 10 erhöht, um ein opimales Ergebnis zu erreichen. Durchschnittlich haben wir mit ~500 Werten pro CSV Datei gearbeitet. 
+
+Anschließend kann nun das Model getestet und als Plot ausgegeben werden, dies wird auch in der Google Colaboratory Seite getan.
+Danach kann das trainierte Model in ein Tensorflow Lite Format konvertiert werden, damit der Arduino und die Software zum Auswerten der Analysierten PH Werte mit den Daten arbeiten kann. Und zum Schluss muss nur noch ein Arduino Header aus dem Model generiert werde. Dies kann auch mit der Google Colaboratory Seite erstellt werden.
+
+Nun haben wir die object_color_classify.ino aus dem [TensorFlowLiteTutorials Github]([url](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/FruitToEmoji)) angepasst und auf unseren Arduino geladen.
+Da zwischenzeitlich einige Librarys des TensorflowLite den Ordnerpfad geändert haben und Namen teilweise auch verändert wurde, musste die object_color_classify.ino dahingehend angepasst werden. Außerdem mussten die nun neu hinzugefügten Ergebnisse, das ursprüngliche Programm war nur für den Vergleich zwischen drei Farben ausgelegt, eingepflegt werden und korrekt im Serial Monitor ausgegeben werden.
 
 Die Webapp zur Simulation des Smartphones beinhaltet *React.js* und somit JavaScript, CSS und HTML. Es wurden weiterhin die Pakete *PrimeReact* für Designkomponenten[^5] [^6] [^7] [^8] [^9] [^10] [^11] und *react-router-dom* für die Erstellung der WebApp als Single Page Application[^12] [^13] verwendet. 
 
