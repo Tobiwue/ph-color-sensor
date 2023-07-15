@@ -1,0 +1,890 @@
+{
+  "Basilikum": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Dill": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Majoran": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Oregano": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Petersilie": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Pfefferminze": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Rosmarin": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Salbei": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Thymian": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Artischocke": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Aubergine": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Blumenkohl": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Bohnen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Brokkoli": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Brunnenkresse": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "Chicoree": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Chili (Peperoni)": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Chinakohl": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Endivien": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Erbsen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Feldsalat": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Fenchel": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Gr\u00fcnkohl": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Gurken": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Ingwer": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Kartoffeln": {
+    "PH_MIN": "5",
+    "PH_MAX": "7"
+  },
+  "Knoblauch": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Kohlrabi": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Kopfsalat": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "K\u00fcrbis": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "Kresse": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Mais": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Mangold": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "M\u00f6hren": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Pak Choi": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7"
+  },
+  "Paprika": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Porree": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Radicchio": {
+    "PH_MIN": "6",
+    "PH_MAX": "6,8"
+  },
+  "Radieschen & Rettich": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Rosenkohl": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Rote Bete": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Schalotten": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "Schnittlauch": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Schwarzwurzeln": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Spargel": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Spinat": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "Sellerie": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Steckr\u00fcbe": {
+    "PH_MIN": "6,8",
+    "PH_MAX": "7,5"
+  },
+  "S\u00fc\u00dfkartoffel": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6"
+  },
+  "Tomaten": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Wei\u00dfkohl, Rotkohl & Wirsing": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Winterrettich": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Zucchini": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Zwiebeln": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "\u00c4pfel": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Aprikosen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Birnen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Erdbeeren": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Heidelbeeren und Preiselbeeren": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "6,5"
+  },
+  "Himbeeren & Brombeeren": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Blaubeere": {
+    "PH_MIN": "4",
+    "PH_MAX": "5,5"
+  },
+  "Johannisbeeren (schwarz & wei\u00df)": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Johannisbeeren rot": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Pfirsich": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Pflaumen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Rhabarber": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Sauerkirschen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Stachelbeere amerikanisch": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Stachelbeere europ\u00e4isch": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "S\u00fc\u00dfkirschen": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Quitten": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Weinreben": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Haselnuss": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Walnuss": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Eiben": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Fichten & Tannen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Kiefer & L\u00e4rchen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Lebensb\u00e4ume (Thuja)": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Wacholder": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Weymouthskiefer": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "6"
+  },
+  "Zeder wei\u00df": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "5,5"
+  },
+  "Zeder virginisch": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Zypressen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Ahorn": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Birke": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Buche": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Eiche": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Flieder": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Forsythie": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Kastanie": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Liguster": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Linde": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Magnolie": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Pappel": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "Platane": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Robinie": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Rose": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Trauerweide": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Weide": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "Abelien": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Akazie": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Adonisr\u00f6schen": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Akelei": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "8,5"
+  },
+  "Alpenveilchen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Alpen-Edelwei\u00df": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Amaryllis": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Amerikanische Pampasgras": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Anemonen": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Arnika": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Astern": {
+    "PH_MIN": "5",
+    "PH_MAX": "7"
+  },
+  "Azaleen": {
+    "PH_MIN": "4",
+    "PH_MAX": "5,5"
+  },
+  "Ballonblume": {
+    "PH_MIN": "6",
+    "PH_MAX": "6,5"
+  },
+  "Begonien": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Bergenien": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Berglorbeer": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "6"
+  },
+  "Besenheide": {
+    "PH_MIN": "4",
+    "PH_MAX": "6"
+  },
+  "Blaukissen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Blausterne": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Bleiwurz": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Bougainvillea": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "Brandschopf": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Braunellen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Bromelien": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Bubikopf": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Buchsbaum": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Christusdorn": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Chrysantheme": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Cineraria": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Cistus": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Clarkia": {
+    "PH_MIN": "6",
+    "PH_MAX": "6,5"
+  },
+  "Coleus": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Convolvulus": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Chrysanthemen": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "6,8"
+  },
+  "Clematis": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Dahlien": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Dreimasterblumen": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Ehrenpreis": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Efeu": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Eibisch": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Europ\u00e4ische Pfeifenstrauch": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Erika": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "6,5"
+  },
+  "Farne": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "5,5"
+  },
+  "Fetthennen": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Fingerhirse": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Flamingoblumen": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Flammenblumen": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Flei\u00dfige Lieschen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Flockenblumen": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Forsythien": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Fuchsien": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Gardenien": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Gazanien": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "G\u00e4nsebl\u00fcmchen": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7"
+  },
+  "Geranien": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6"
+  },
+  "Ginster": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Gipskr\u00e4uter": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Glockenblumen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Goldregen": {
+    "PH_MIN": "6.0",
+    "PH_MAX": "7.0"
+  },
+  "Goldruten": {
+    "PH_MIN": "5",
+    "PH_MAX": "7"
+  },
+  "Gr\u00fcne Minze": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  },
+  "G\u00fcnsel": {
+    "PH_MIN": "4",
+    "PH_MAX": "6"
+  },
+  "Gladiolen": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7"
+  },
+  "Heidekraut": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "6"
+  },
+  "Hibiskus": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Hornkr\u00e4uter": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Hortensien": {
+    "PH_MIN": "4",
+    "PH_MAX": "4,5"
+  },
+  "Hyazinthen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Iris": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Jasmin": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Kamelie": {
+    "PH_MIN": "4",
+    "PH_MAX": "5,5"
+  },
+  "Klivie": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7"
+  },
+  "Kokardenblumen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Kornblumen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "K\u00f6cherbl\u00fcmchen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Krokusse": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Lilien": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "L\u00f6wenm\u00e4ulchen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Lupinen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Maigl\u00f6ckchen": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "6"
+  },
+  "Moos": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Narzissen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Nelken": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Nieswurz": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Ochsenzungen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Oleander": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Orchideen": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "5,5"
+  },
+  "Osterglocken": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Osterlilien": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Pantoffelblumen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Passionsblumen": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Petunien": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Pfingstrosen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Pr\u00e4rielilien": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Primeln": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Quitte": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Rhododendron": {
+    "PH_MIN": "4",
+    "PH_MAX": "5,5"
+  },
+  "Ringelblume": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Raps": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7,5"
+  },
+  "Rittersporn": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Rosen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Schleifenblumen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Schneegl\u00f6ckchen": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Schwertlilien": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Sonnenblumen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Sonnenwenden": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Steinbrech": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Steckrosen": {
+    "PH_MIN": "6",
+    "PH_MAX": "8"
+  },
+  "Stiefm\u00fctterchen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7"
+  },
+  "Strauchmargerite": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Studentenblume": {
+    "PH_MIN": "5",
+    "PH_MAX": "7,5"
+  },
+  "Sukkulenten": {
+    "PH_MIN": "5",
+    "PH_MAX": "6,5"
+  },
+  "Tamarisken": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "8"
+  },
+  "Tr\u00e4nendes Herz": {
+    "PH_MIN": "6",
+    "PH_MAX": "7,5"
+  },
+  "Tulpen": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Usambaraveilchen": {
+    "PH_MIN": "4,5",
+    "PH_MAX": "5,5"
+  },
+  "Veilchen": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "6,5"
+  },
+  "Vergi\u00dfmeinnicht": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Wachsblume": {
+    "PH_MIN": "6,5",
+    "PH_MAX": "7"
+  },
+  "Waldmeister": {
+    "PH_MIN": "4",
+    "PH_MAX": "6"
+  },
+  "Weihnachtskaktus": {
+    "PH_MIN": "5",
+    "PH_MAX": "6"
+  },
+  "Zierspargel": {
+    "PH_MIN": "6",
+    "PH_MAX": "7"
+  },
+  "Zinnien": {
+    "PH_MIN": "5,5",
+    "PH_MAX": "7,5"
+  }
+}
