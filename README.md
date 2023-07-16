@@ -2,14 +2,14 @@
 
 # 1 Einführung
 ## 1.1 Motivation
-Im Rahmen des Moduls 'Wissensmanagement' im Wirtschaftsinformatik Masterstudium an der HTW-Berlin bestand die Aufgabe, ein Projekt umzusetzen, in welchem die Themen Open-Source Hardware, Machine Learning oder Internet of Things behandelt werden. Durch gemeinsame Ideenfindung wurde sich für die Umsetzung eines PH-Wert-Messgeräts entschieden.
+Im Rahmen des Moduls 'Wissensmanagement' im Wirtschaftsinformatik Masterstudium an der HTW-Berlin bestand die Aufgabe, ein Projekt umzusetzen, in welchem die Themen Open-Source-Hardware, Machine Learning oder Internet of Things behandelt werden. Durch gemeinsame Ideenfindung wurde sich für die Umsetzung eines pH-Wert-Messgeräts entschieden.
 Zusätzlich wurde sich darauf festgelegt, diese Messungen an Bodenproben durchzuführen, um Pflanzen die perfekte Grundlage zum Wachsen bieten zu können.
 
 ## 1.2 Zielsetzung
 Durch ein Messgerät welches mit einem Arduino gekoppelt ist, soll der PH Wert gemessen und mit einem in einer Datenbank hinterlegtem Idealwert abgeglichen werden. Der Benutzer bekommt daraufhin das Feedback, wie sich der PH-Wert des Bodens seiner Pflanze. Aufgrund des Feedbacks weis der Benutzer dann ob Handlungsbedarf besteht. Dieses Feedback soll in einem simulierten Smartphone zurückgegeben werden.
 
 ## 1.3 Vorgehensweise
-Zuerst wurden verschiedene Messungsmöglichkeiten betrachtet. In Rücksprache mit den Dozenten wurde ein Messgerät genutzt, welches mit einem Arduino (welcher? nicht der Sense) verbunden werden konnte. Dieses Messgerät erwies sich nach ausgiebigen Versuchen jedoch als fehlerhaft. Nachdem ein Großteil der Bearbeitungszeit damit verbracht wurde, hinreichende Daten durch das Messgerät zu erhalten, was leider nicht möglich war, wurde sich entschieden, die ursprüngliche Projektidee anzupassen. Mittels des eingebauten Farbsensors in dem Arduino Sense 33 BLE werden nun Farben ausgewertet, welche analoge PH-Teststreifen jeweils zurückgeben. Damit ist es möglich, durch bestimmte Farben festzustellen, welcher PH Wert die jeweilige Erdprobe nachweist. Der Arduino wird hierbei mittels Machine Learning darauf trainiert, bei verschiedenen Inputs den passenden Output zu liefern.
+Zuerst wurden verschiedene Messungsmöglichkeiten betrachtet. In Rücksprache mit den Dozenten wurde ein Messgerät genutzt, welches mit einem Arduino Nano Every verbunden werden konnte. Dieses Messgerät erwies sich nach ausgiebigen Versuchen jedoch als fehlerhaft. Nachdem ein Großteil der Bearbeitungszeit damit verbracht wurde, hinreichende Daten durch das Messgerät zu erhalten, was leider nicht möglich war, wurde sich entschieden, die ursprüngliche Projektidee anzupassen. Mittels des eingebauten Farbsensors in dem Arduino Sense 33 BLE werden nun Farben ausgewertet, welche analoge PH-Teststreifen jeweils zurückgeben. Damit ist es möglich, durch bestimmte Farben festzustellen, welcher PH Wert die jeweilige Erdprobe nachweist. Der Arduino wird hierbei mittels Machine Learning darauf trainiert, bei verschiedenen Inputs den passenden Output zu liefern.
 
 Parallel dazu wurde eine WebApp erstellt, in welcher aufbereitete Daten zu den idealen PH-Werten für verschiedene Pflanzen mit gemessenen Werten verglichen werden können. Weiterhin wurde eine Lösung implementiert, mit welcher die gemessenen Daten des Farbsensors auf dem Arduino in der App genutzt werden können. 
 
@@ -73,17 +73,26 @@ Die Screenshots der App zeigen die Darstellung von Hinweisen für verschiedene P
 <img src="https://github.com/Tobiwue/ph-color-sensor/blob/main/PH_rot.PNG" width="300">
 </p>
 
-Die Dauer des gesamten Prozesses hängt von verschiedenen Faktoren ab, darunter die Reaktionszeit der App und die Geschwindigkeit der Datenverarbeitung. Obwohl keine großen Datenmengen verarbeitet werden müssen, wurde bewusst ein Ladesymbol implementiert, das für eine bestimmte Zeit von drei Sekunden angezeigt wird, bevor die Ergebnisseite geladen wird. Diese Entscheidung wurde getroffen, um sicherzustellen, dass während dieser Zeit der pH-Streifen klar über den Sensor gehalten werden kann und der Farbwert so genau wie möglich ermittelt werden kann. Indem eine angemessene Wartezeit eingerichtet wird, wird ermöglicht, dass die Datenverarbeitung abgeschlossen wird und genügend Zeit für eine genaue Auswertung der PH-Werte zur Verfügung steht.
+Die Dauer des gesamten Prozesses hängt von verschiedenen Faktoren ab, darunter die Reaktionszeit der App und die Geschwindigkeit der Datenverarbeitung. Obwohl keine großen Datenmengen verarbeitet werden müssen, wurde bewusst ein Ladesymbol implementiert, das für eine bestimmte Zeit von drei Sekunden angezeigt wird, bevor die Ergebnisseite geladen wird. Diese Entscheidung wurde getroffen, um sicherzustellen, dass während dieser Zeit der pH-Streifen klar über den Sensor gehalten werden kann und der Farbwert so genau wie möglich ermittelt werden kann. Indem eine angemessene Wartezeit eingerichtet wird, wird ermöglicht, dass die Datenverarbeitung abgeschlossen wird und genügend Zeit für eine genaue Auswertung der pH-Werte zur Verfügung steht.
 
 Die App ist ................ akkurat?
 
+# 6 Geäuse - Wearable
+Mit der App Shapr3D wurde ein Case entwickelt, welche es ermöglicht den Arduino wie ein Wearable bei sich zu haben.
+Der Arduino wird in das Gehäuse hineingesteckt und sollte durch die genauen Abmaße fest sitzen.
+Durch wiederholtes Herausnehmen kann es jedoch zu Materialermüdung kommen, wodurch der Arduino leichter herausrutschen könnte.
+Ein kleines Loch am Ende des Cases verwandelt das Gerät in einen Anhänger.
+Der USB-Port ist frei erreichbar und kann so mühelos mit jedem Gerät verbunden werden.
+Das Gehäuse ist allerdings nicht darauf ausgelegt, jede beliebige Dicke an USB Anschlusskabeln zu unterstützen.
+Außerdem besitzt das Gehäuse keine IP67 Zertifizierung.
+Alternativ könnte noch eine Art Deckel entworfen werden, mit einem Vergrößerungsglas oberhalb des Sensors.
 
-# 6 Troubleshooting
-## 6.1 Microcontroller
-Für das vorherige Messgerät stellte sich heraus das der Arduino scheinbar nicht in der Lage war das Gerät zu betreiben.
-Nachdem Wir dann einige Arduinos ausprobiert haben, entschieden wir uns für einen mit 5V Output.
+# 7 Troubleshooting
+## 7.1 Microcontroller
+Für das vorherige Messgerät stellte sich heraus, dass der Arduino scheinbar nicht in der Lage war, das Gerät zu betreiben.
+Nachdem wir dann einige Arduinos ausprobiert haben, entschieden wir uns für einen mit 5V Output.
 
-## 6.2 Messgeräte
+## 7.2 Messgeräte
 Zu Beginn hatten wir ein Messgerät verwendet.
 Dieses erwies sich allerdings nach vielem Testen als fehlerhaft.
 Der Fehler bestand darin, dass das Gerät nur einen Wert dauerhaft ausgegeben hat.
@@ -91,21 +100,25 @@ Der Fehler bestand darin, dass das Gerät nur einen Wert dauerhaft ausgegeben ha
 -Benutzeranleitung nur in Chinesisch und für bauähnliche Geräte
 -Benutzeranleitung nicht mitgeliefert
 
-## 6.3 Librarys
-Bei dem Arduino BLE 33 Sense mussten wir feststellen, dass für unseren vorherigen Plan leider keine Kompatibilität zu den Librarys bestand.
-Wir haben also durch die Inkompatiblen Librarys unsere USB Ports überschrieben wodurch der Arduino die Kommunikation mit dem PC verloren hat.
+## 7.3 Librarys
+Bei dem Arduino BLE 33 Sense mussten wir feststellen, dass für unseren vorherigen Plan leider keine Kompatibilität zu den Libraries bestand.
+Wir haben also durch die inkompatiblen Libraries unsere USB-Ports überschrieben, wodurch der Arduino die Kommunikation mit dem PC verloren hat.
 Dadurch war dieser nicht mehr zu gebrauchen.
 
-## 6.4 Dateiformate und -übertragung
-Für die Integration der vom Arduino erfassten Sensordaten in die Webanwendung waren verschiedene Aspekte zu berücksichtigen, darunter der Übertragungsweg und das Datenformat. Eine anfängliche Idee bestand darin, die Daten an einen Server zu senden, z. B. einen lokalen Express-Server von Node.js. Allerdings stellte sich die Umsetzung dieser Lösung als schwierig heraus. Die Applikation wurde zwar ebenso über den lokalen Server gehostet, das Grundgerüst der navigierung zwischen den verschiedenen Ansichten und der Datenübertragung innerhalb der Applikation erfolgte über Funktionen des Pakets *react-router-dom*, welche nicht mehr nutzbar waren, da sie über URLs ihre Funktionalität erfüllt hatten. Da der Server selbst über URLs arbeitete, beispielsweise für POST- oder GET-Anfragen, konnte er die Navigations-URLs nicht auflösen. Angesichts der begrenzten verfügbaren Zeit wurde daher eine alternative Lösung in Betracht gezogen.
+## 7.4 Dateiformate und -übertragung
+Für die Integration der vom Arduino erfassten Sensordaten in die Webanwendung waren verschiedene Aspekte zu berücksichtigen, darunter der Übertragungsweg und das Datenformat. Eine anfängliche Idee bestand darin, die Daten an einen Server zu senden, z. B. einen lokalen Express-Server von Node.js. Allerdings stellte sich die Umsetzung dieser Lösung als schwierig heraus. Die Applikation wurde zwar ebenso über den lokalen Server gehostet, das Grundgerüst der Navigierung zwischen den verschiedenen Ansichten und der Datenübertragung innerhalb der Applikation erfolgte über Funktionen des Pakets *react-router-dom*, welche nicht mehr nutzbar waren, da sie über URLs ihre Funktionalität erfüllt hatten. Da der Server selbst über URLs arbeitete, beispielsweise für POST- oder GET-Anfragen, konnte er die Navigation-URLs nicht auflösen. Angesichts der begrenzten verfügbaren Zeit wurde daher eine alternative Lösung in Betracht gezogen.
 
 Da die Datenübertragung auch über eine kabelgebundene Verbindung wie ein USB-Kabel erfolgen kann, das mit einem Laptop verbunden ist, können die Daten in entsprechenden Programmen verwendet werden. Gängige Programme dafür sind beispielsweise die Arduino IDE[^14] oder PuTTY[^15].
 
 Des Weiteren mussten die Daten zu den idealen pH-Werten von der Website in einem Format vorliegen, das von der Webanwendung verarbeitet werden kann. Eine Möglichkeit bestand darin, eine kleine Datenbank einzurichten, aus der die Daten abgefragt werden könnten. Die Datenmenge ist jedoch relativ gering und es werden keine großen Veränderungen oder Erweiterungen erwartet, da alle gängigen Pflanzenarten enthalten sind, die für Hobbygärtner, für die diese Anwendung entwickelt wurde, relevant sein könnten. Somit wurde entschieden, die Daten in einer JSON-Datei abzulegen, die von der React-Applikation ohne großen Aufwand genutzt werden kann. Die Konvertierung der Tabellendaten in ein geeignetes Format wie CSV und schließlich in eine gewünschte JSON-Dateistruktur stellte jedoch eine unerwartete Hürde dar, die mehrere Stunden Arbeit erforderte, um sie zu überwinden.
 
-# 7 Lessons Learned
+# 8 Lessons Learned
+Eine vorab Prüfung der Libraries, Kompatibilität der Hardware mit der Software und der Hardware selbst ist zwingend notwendig, um Komplikationen zu vermeiden.
+Außerdem sollten je nach Projektzeitraum auch auf die besorgte Hardware geschaut werden.
+Hardware ohne Benutzeranleitung bzw. eine welche nicht zu gebrauchen ist, sollte ausgeschlossen werden.
+Es ist jedoch zu beachten, dass, auch wenn das ursprüngliche Projekt nicht geklappt hat, es mit dem Arduino möglich war, mittels eines anderen Weges das gleiche Ergebnis zu erzielen.
 
-# 8 Ausblick
+# 9 Ausblick
 Der wichtigste nächste Schritt besteht darin, eine vollständige und korrekte Implementierung des pH-Messgeräts zu erreichen. Da der Erfolg dieses Vorhabens jedoch von der fehlerfreien Funktionsweise des pH-Sensors abhängt, ist nur begrenzt Einfluss auf den Erfolg möglich.
 
 In einer idealen Anwendung könnten zusätzlich zu den Überprüfungen der aktuellen pH-Messwerte auch vergangene Messwerte gespeichert werden, um einen Verlauf einsehbar zu machen. Darüber hinaus könnte eine Funktion implementiert werden, um eigene Pflanzenprofile zu speichern, möglicherweise inklusive eigener aufgenommener Bilder. Das Hosting der Anwendung ermöglicht es verschiedenen Personen, sie zu nutzen und innerhalb der Community Wissen auszutauschen, beispielsweise durch die Integration von Forum-Funktionen. Dies wäre eine positive Weiterentwicklung der Anwendung. 
