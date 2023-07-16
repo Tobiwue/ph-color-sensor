@@ -2,7 +2,7 @@
 
 # 1 Einführung
 ## 1.1 Motivation
-Im Rahmen des Moduls 'Wissensmanagement' im Wirtschaftsinformatik Masterstudium an der HTW-Berlin bestand die Aufgabe, ein Projekt umzusetzen, in welchem die Themen Open-Source-Hardware, Machine Learning oder Internet of Things behandelt werden. Durch gemeinsame Ideenfindung wurde sich für die Umsetzung eines pH-Wert-Messgeräts entschieden.
+Im Rahmen des Moduls 'Methoden der Wissensverarbeitung' im Wirtschaftsinformatik Masterstudium an der HTW-Berlin bestand die Aufgabe, ein Projekt umzusetzen, in welchem die Themen Open-Source-Hardware, Machine Learning oder Internet of Things behandelt werden. Durch gemeinsame Ideenfindung wurde sich für die Umsetzung eines pH-Wert-Messgeräts entschieden.
 Zusätzlich wurde sich darauf festgelegt, diese Messungen an Bodenproben durchzuführen, um Pflanzen die perfekte Grundlage zum Wachsen bieten zu können.
 
 ## 1.2 Zielsetzung
