@@ -87,6 +87,10 @@ Das Gehäuse ist allerdings nicht darauf ausgelegt, jede beliebige Dicke an USB 
 Außerdem besitzt das Gehäuse keine IP67 Zertifizierung.
 Alternativ könnte noch eine Art Deckel entworfen werden, mit einem Vergrößerungsglas oberhalb des Sensors.
 
+<p align="middle">
+<img src="https://github.com/Tobiwue/ph-color-sensor/blob/main/arduino wearable.jpg" width="300">
+</p>
+
 # 7 Troubleshooting
 ## 7.1 Microcontroller
 Für das vorherige Messgerät stellte sich heraus, dass der Arduino scheinbar nicht in der Lage war, das Gerät zu betreiben.
