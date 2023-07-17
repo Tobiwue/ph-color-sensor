@@ -6,7 +6,7 @@ Im Rahmen des Moduls 'Methoden der Wissensverarbeitung' im Wirtschaftsinformatik
 Zusätzlich wurde sich darauf festgelegt, diese Messungen an Bodenproben durchzuführen, um Pflanzen die perfekte Grundlage zum Wachsen bieten zu können.
 
 ## 1.2 Zielsetzung
-Durch ein Messgerät welches mit einem Arduino gekoppelt ist, soll der PH Wert gemessen und mit einem in einer Datenbank hinterlegtem Idealwert abgeglichen werden. Der Benutzer bekommt daraufhin das Feedback, wie sich der PH-Wert des Bodens seiner Pflanze. Aufgrund des Feedbacks weis der Benutzer dann ob Handlungsbedarf besteht. Dieses Feedback soll in einem simulierten Smartphone zurückgegeben werden. Ziel ist dabei zu prüfen, ob der Farbsensor so akkurat ist, dass er für diesen Zweck verwendet werden kann.
+Durch ein Messgerät welches mit einem Arduino gekoppelt ist, soll der PH Wert gemessen und mit einem in einer Datenbank hinterlegtem Idealwert abgeglichen werden. Der Benutzer bekommt daraufhin das Feedback, wie der PH-Wert des Bodens der Pflanze ist. Aufgrund des Feedbacks weiß der Benutzer dann, ob Handlungsbedarf besteht. Dieses Feedback soll in einem simulierten Smartphone zurückgegeben werden. Ziel ist dabei zu prüfen, ob der Farbsensor so akkurat ist, dass er für diesen Zweck verwendet werden kann.
 
 ## 1.3 Vorgehensweise
 Zuerst wurden verschiedene Messungsmöglichkeiten betrachtet. In Rücksprache mit den Dozenten wurde ein Messgerät genutzt, welches mit einem Arduino Nano Every verbunden werden konnte. Dieses Messgerät erwies sich nach ausgiebigen Versuchen jedoch als fehlerhaft. Nachdem ein Großteil der Bearbeitungszeit damit verbracht wurde, hinreichende Daten durch das Messgerät zu erhalten, was leider nicht möglich war, wurde sich entschieden, die ursprüngliche Projektidee anzupassen. Mittels des eingebauten Farbsensors in dem Arduino Sense 33 BLE werden nun Farben ausgewertet, welche analoge PH-Teststreifen jeweils zurückgeben. Damit ist es möglich, durch bestimmte Farben festzustellen, welcher PH Wert die jeweilige Erdprobe nachweist. Der Arduino wird hierbei mittels Machine Learning darauf trainiert, bei verschiedenen Inputs den passenden Output zu liefern.
@@ -38,20 +38,19 @@ Zur Realisierung des Projektes wurde ein Arduino Nano 33 BLE Sense verwendet. Di
 ## 4.2 Software
 Die Programme wurden wie bereits erwähnt in verschiedenen Programmiersprachen geschrieben.
 
-Für die Datenaufnahme der PH-Farbwerte wurde das Programm object_color_capture.ino aus dem [TensorFlowLiteTutorials Github]([(https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/FruitToEmoji)]) verwendet. Mithilfe dieser Anwendung und der Arduino Cloud, konnte die Farbskala der PH-Wert-Messstreifen aufgenommen werden. Dafür wurde von den verschiedenen Farben ein Foto gemacht und anschließend auf dem Notebook in Großformat ausgegeben. Dann wurde der Farbsensor über die gesamte Fläche des Bildes gehalten um eine möglichst große Datenmenge zu erhalten. Die auf dem Serial Monitor ausgegebenen RGB Werte wurden in eine CSV Datei übertragen, um diese späte durch ein neuronales Netzwerk zu verwerten.
+Für die Datenaufnahme der PH-Farbwerte wurde das Programm object_color_capture.ino aus dem [^2]) verwendet. Mithilfe dieser Anwendung und der Arduino Cloud, konnte die Farbskala der PH-Wert-Messstreifen aufgenommen werden. Dafür wurde von den verschiedenen Farben ein Foto gemacht und anschließend auf dem Notebook in Großformat ausgegeben. Dann wurde der Farbsensor über die gesamte Fläche des Bildes gehalten um eine möglichst große Datenmenge zu erhalten. Die auf dem Serial Monitor ausgegebenen RGB Werte wurden in eine CSV Datei übertragen, um diese späte durch ein neuronales Netzwerk zu verwerten.
 
-Für die Datenaufbereitung wurde die FruitToEmoji Google Colaboratory Seite https://colab.research.google.com/github/arduino/ArduinoTensorFlowLiteTutorials/blob/master/FruitToEmoji/FruitToEmoji.ipynb
-verwendet. Auf der Google Colaboratory Seite konnten die vorher erstellten csv Dateien hochgeladen werden und werden aufbereitet. Dabei werden eventuelle NULL Werte entfernt und die Menge an Daten werden für die einzelnen Skalenwerte gespeichert. Außerdem werden die Werte randomisiert, um den Lerneffekt der später verwendeten API zu verstärken. 
+Für die Datenaufbereitung wurde die FruitToEmoji Google Colaboratory Seite[^6] verwendet. Auf der Google Colaboratory Seite konnten die vorher erstellten csv Dateien hochgeladen werden und werden aufbereitet. Dabei werden eventuelle NULL Werte entfernt und die Menge an Daten werden für die einzelnen Skalenwerte gespeichert. Außerdem werden die Werte randomisiert, um den Lerneffekt der später verwendeten API zu verstärken. 
 
-Die nun aufbereiteten Daten können nun durch die [Keras API]([url](https://www.tensorflow.org/guide/keras)) verarbeitet werden und können in ein, durch den Arduino auslesbares, Model geschrieben werden. Dafür wurde die Epochen-Anzahl auf 600 und die Batchzahl auf 10 erhöht, um ein opimales Ergebnis zu erreichen. Durchschnittlich wurde mit ~500 Werten pro CSV Datei gearbeitet. 
+Die nun aufbereiteten Daten können daraufhin verarbeitet werden und in ein, durch den Arduino auslesbares, Model geschrieben werden[^7]. Dafür wurde die Epochen-Anzahl auf 600 und die Batchzahl auf 10 erhöht, um ein opimales Ergebnis zu erreichen. Durchschnittlich wurde mit ~500 Werten pro CSV Datei gearbeitet. 
 
 Anschließend kann nun das Model getestet und als Plot ausgegeben werden, dies wird auch in der Google Colaboratory Seite getan.
 Danach kann das trainierte Model in ein Tensorflow Lite Format konvertiert werden, damit der Arduino und die Software zum Auswerten der Analysierten PH Werte mit den Daten arbeiten kann. Und zum Schluss muss nur noch ein Arduino Header aus dem Model generiert werde. Dies kann auch mit der Google Colaboratory Seite erstellt werden.
 
-Nun konnte die object_color_classify.ino aus dem [TensorFlowLiteTutorials Github]([url](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/FruitToEmoji)) angepasst und auf den Arduino geladen werden.
+Nun konnte die object_color_classify.ino aus dem [^2] angepasst und auf den Arduino geladen werden.
 Da zwischenzeitlich einige Librarys des TensorflowLite den Ordnerpfad geändert haben und Namen teilweise auch verändert wurde, musste die object_color_classify.ino dahingehend angepasst werden. Außerdem mussten die nun neu hinzugefügten Ergebnisse, das ursprüngliche Programm war nur für den Vergleich zwischen drei Farben ausgelegt, eingepflegt werden und korrekt im Serial Monitor ausgegeben werden.
 
-Die Webapp zur Simulation des Smartphones beinhaltet *React.js* und somit JavaScript, CSS und HTML. Es wurden weiterhin die Pakete *PrimeReact* für Designkomponenten[^6] [^7] [^8] [^9] [^10] [^11] [^12] und *react-router-dom* für die Erstellung der WebApp als Single Page Application[^13] [^14] verwendet. 
+Die Webapp zur Simulation des Smartphones beinhaltet *React.js* und somit JavaScript, CSS und HTML. Es wurden weiterhin die Pakete *PrimeReact* für Designkomponenten[^8] [^9] [^10] [^11] [^12] [^13] [^14] und *react-router-dom* für die Erstellung der WebApp als Single Page Application[^15] [^16] verwendet. 
 
 Die React-App besteht aus verschiedenen Komponenten, die für die Erstellung einer React-Webanwendung typisch sind. In der Datei *App.js* werden zunächst die URLs definiert, über die verschiedene Ansichten erreichbar sein sollen. Diese Datei wird dann in *index.js* aufgerufen, um die App zu erzeugen.
 
@@ -63,7 +62,7 @@ Der Code für den Arduino wurde in der Arduino IDE in C geschrieben.
 Zusätzlich wurde das vorher trainierte Model in Python entwickelt.
 
 # 5 Projektergebnisse
-Die Screenshots der App zeigen die Darstellung von Hinweisen für verschiedene PH-Wert-Bereiche. Wenn die App eine Eingabe zur Auswahl der Pflanzenart erhält und diese ausgewertet werden soll, wird anhand der idealen PH-Werte für die jeweilige Pflanzenart berechnet, ob der gemessene Wert sich im Idealbereich befindet oder nicht. Wenn der Wert im Idealbereich liegt, wird ein grüner Hinweis angezeigt. Wenn der PH-Wert innerhalb von &plusmn;0,5 des Idealintervalls liegt, wird im gelben Fenster darauf hingewiesen, dass leichte Anpassungen erforderlich sein könnten. Wenn der Wert außerhalb dieses erweiterten Intervalls liegt, besteht ein größerer Handlungsbedarf, der rot gekennzeichnet ist. Damit die Nutzerinnen und Nutzer sofort erfahren, welche Schritte zur Verbesserung der PH-Werte führen können, werden entsprechende Handlungsempfehlungen angezeigt. Folgende Screenshots der App zeigen die Darstellung der Hinweisen für verschiedene PH-Wert-Bereich:
+Die Screenshots der App zeigen die Darstellung von Hinweisen für verschiedene PH-Wert-Bereiche. Wenn die App eine Eingabe zur Auswahl der Pflanzenart erhält und diese ausgewertet werden soll, wird anhand der idealen PH-Werte für die jeweilige Pflanzenart berechnet, ob der gemessene Wert sich im Idealbereich befindet oder nicht. Wenn der Wert im Idealbereich liegt, wird ein grüner Hinweis angezeigt. Wenn der PH-Wert innerhalb von &plusmn;0,5 des Idealintervalls liegt, wird im gelben Fenster darauf hingewiesen, dass leichte Anpassungen erforderlich sein könnten. Wenn der Wert außerhalb dieses erweiterten Intervalls liegt, besteht ein größerer Handlungsbedarf, der rot gekennzeichnet ist. Damit die Nutzerinnen und Nutzer sofort erfahren, welche Schritte zur Verbesserung der PH-Werte führen können, werden entsprechende Handlungsempfehlungen angezeigt[^17]. Folgende Screenshots der App zeigen die Darstellung der Hinweisen für verschiedene PH-Wert-Bereich:
 
 <p align="middle">
 <img src="https://github.com/Tobiwue/ph-color-sensor/blob/main/PH_grün.PNG" width="300">
@@ -102,7 +101,7 @@ Bei dem Arduino BLE 33 Sense wurde festgestellt, dass für das vorherige Projekt
 ## 7.4 Dateiformate und -übertragung
 Für die Integration der vom Arduino erfassten Sensordaten in die Webanwendung waren verschiedene Aspekte zu berücksichtigen, darunter der Übertragungsweg und das Datenformat. Eine anfängliche Idee bestand darin, die Daten an einen Server zu senden, z. B. einen lokalen Express-Server von Node.js. Allerdings stellte sich die Umsetzung dieser Lösung als schwierig heraus. Die Applikation wurde zwar ebenso über den lokalen Server gehostet, das Grundgerüst der Navigierung zwischen den verschiedenen Ansichten und der Datenübertragung innerhalb der Applikation erfolgte über Funktionen des Pakets *react-router-dom*, welche nicht mehr nutzbar waren, da sie über URLs ihre Funktionalität erfüllt hatten. Da der Server selbst über URLs arbeitete, beispielsweise für POST- oder GET-Anfragen, konnte er die Navigation-URLs nicht auflösen. Angesichts der begrenzten verfügbaren Zeit wurde daher eine alternative Lösung in Betracht gezogen.
 
-Da die Datenübertragung auch über eine kabelgebundene Verbindung wie ein USB-Kabel erfolgen kann, das mit einem Laptop verbunden ist, können die Daten in entsprechenden Programmen verwendet werden. Gängige Programme dafür sind beispielsweise die Arduino IDE[^15] oder PuTTY[^16].
+Da die Datenübertragung auch über eine kabelgebundene Verbindung wie ein USB-Kabel erfolgen kann, das mit einem Laptop verbunden ist, können die Daten in entsprechenden Programmen verwendet werden. Gängige Programme dafür sind beispielsweise die Arduino IDE[^18] oder PuTTY[^19].
 
 Des Weiteren mussten die Daten zu den idealen pH-Werten von der Website in einem Format vorliegen, das von der Webanwendung verarbeitet werden kann. Eine Möglichkeit bestand darin, eine kleine Datenbank einzurichten, aus der die Daten abgefragt werden könnten. Die Datenmenge ist jedoch relativ gering und es werden keine großen Veränderungen oder Erweiterungen erwartet, da alle gängigen Pflanzenarten enthalten sind, die für Hobbygärtner, für die diese Anwendung entwickelt wurde, relevant sein könnten. Somit wurde entschieden, die Daten in einer JSON-Datei abzulegen, die von der React-Applikation ohne großen Aufwand genutzt werden kann. Die Konvertierung der Tabellendaten in ein geeignetes Format wie CSV und schließlich in eine gewünschte JSON-Dateistruktur stellte jedoch eine unerwartete Hürde dar, die mehrere Stunden Arbeit erforderte, um sie zu überwinden.
 
@@ -121,7 +120,7 @@ In einer idealen Anwendung könnten zusätzlich zu den Überprüfungen der aktue
 
 [^1]: ECENSE-Store (2018, 27. März). *ECENCE pH Teststreifen 100 Stck, Lackmus Testpapier, Messbereich 4,5-9, Indikator Universalpapier, Säuretest für Aquarien, Trinkwasser.* URL: https://www.amazon.de/dp/B07CCZSV6C/ref=twister_B095SV65FG?_encoding=UTF8&psc=1 (abgerufen am 24.06.2023)
 
-[^2]: FruitToEmoji Arduino TensofrFlowLite Example. URL:https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/FruitToEmoji
+[^2]: Pajak, D. & Mistry, S. (2021, 03. Mai). *FruitToEmoji.* URL: https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/FruitToEmoji (abgerufen am 16.07.2023)
 
 [^3]: Jeske, E. (2023, 17. April). *pH-Wert Pflanzen-Tabelle: Der richtige Boden für deine Pflanze.* URL: https://liebe-zum-garten.de/ph-wert-pflanzen-tabelle/ (abgerufen am 12.06.2023)
 
@@ -129,24 +128,30 @@ In einer idealen Anwendung könnten zusätzlich zu den Überprüfungen der aktue
 
 [^5]: OpenAI (2023, 03. Juli). Abwandlung der Antwort auf die Frage: *Wie könnte ein Python Programm aussehen, dass auf COM10 hört und alle Daten, die dort eingehen, über einen Websocket Server abrufbrar macht.*
 
-[^6]: PrimeReact (o.D.). *Button.* URL: https://primereact.org/button/ (abgerufen am 19.06.2023)
+[^6] Pajak, D. & Mistry, S. (2019, 07. November). *FruitToEmoji-GIT.ipynb.* URL: https://colab.research.google.com/github/arduino/ArduinoTensorFlowLiteTutorials/blob/master/FruitToEmoji/FruitToEmoji.ipynb (abgerufen 16.07.2023)
 
-[^7]: PrimeReact (o.D.). *Card.* URL: https://primereact.org/card/ (abgerufen am 26.06.2023)
+[^7] Tensorflow (o. D.). *Keras: The high-level API for TensorFlow.* URL: https://www.tensorflow.org/guide/keras (16.07.2023)
 
-[^8]: PrimeReact (o.D.). *DataTable.* URL: https://primereact.org/datatable/ (abgerufen am 19.06.2023)
+[^8]: PrimeReact (o. D.). *Button.* URL: https://primereact.org/button/ (abgerufen am 19.06.2023)
 
-[^9]: PrimeReact (o.D.). *DropDown.* URL: https://primereact.org/dropdown/ (abgerufen am 19.06.2023
+[^9]: PrimeReact (o. D.). *Card.* URL: https://primereact.org/card/ (abgerufen am 26.06.2023)
 
-[^10]: PrimeReact (o.D.). *Menu.* URL: https://primereact.org/menu/ (abgerufen am 19.06.2023)
+[^10]: PrimeReact (o. D.). *DataTable.* URL: https://primereact.org/datatable/ (abgerufen am 19.06.2023)
 
-[^11]: PrimeReact (o.D.). *ProgressSpinner.* URL: https://primereact.org/progressspinner/ (abgerufen am 03.07.2023) 
+[^11]: PrimeReact (o. D.). *DropDown.* URL: https://primereact.org/dropdown/ (abgerufen am 19.06.2023
 
-[^12]: PrimeReact (o.D.). *SideBar.* URL: https://primereact.org/sidebar/ (abgerufen am 19.06.2023)
+[^12]: PrimeReact (o. D.). *Menu.* URL: https://primereact.org/menu/ (abgerufen am 19.06.2023)
 
-[^13]: React Router (o.D.). *useNavigate.* URL: https://reactrouter.com/en/main/hooks/use-navigate (abgerufen am 26.06.2023)
+[^13]: PrimeReact (o. D.). *ProgressSpinner.* URL: https://primereact.org/progressspinner/ (abgerufen am 03.07.2023) 
 
-[^14]: React Router (o.D.). *useLocation.* URL: https://reactrouter.com/en/main/hooks/use-location (abgerufen am 26.06.2023)
+[^14]: PrimeReact (o. D.). *SideBar.* URL: https://primereact.org/sidebar/ (abgerufen am 19.06.2023)
 
-[^15]: Arduino (o.D.). *SerialTransfer.* URL: https://www.arduino.cc/reference/en/libraries/serialtransfer/ (abgerufen am 03.07.2023)
+[^15]: React Router (o. D.). *useNavigate.* URL: https://reactrouter.com/en/main/hooks/use-navigate (abgerufen am 26.06.2023)
 
-[^16]: Mechatrofice (o.D.). *Save Serial data to a text file – Arduino, Processing, PuTTY.* URL: https://mechatrofice.com/arduino/save-serial-data-to-a-text-file-arduino-processing-putty (abgerufen am 03.07.2023)
+[^16]: React Router (o. D.). *useLocation.* URL: https://reactrouter.com/en/main/hooks/use-location (abgerufen am 26.06.2023)
+
+[^17]: GartenFlora (o. D.). *pH-Wert im Gartenboden: Prüfen und regulieren.* URL: https://www.gartenflora.de/gartenwissen/gartenpflege/ph-wert-gartenboden-pruefen/#:~:text=Ist%20der%20pH%2DWert%20im%20Bodensubstrat%20generell%20zu%20hoch%20(im,schlimmsten%20Fall%20sterben%20Pflanzen%20ab. (abgerufen 19.06.2023)
+
+[^18]: Arduino (o. D.). *SerialTransfer.* URL: https://www.arduino.cc/reference/en/libraries/serialtransfer/ (abgerufen am 03.07.2023)
+
+[^19]: Mechatrofice (o. D.). *Save Serial data to a text file – Arduino, Processing, PuTTY.* URL: https://mechatrofice.com/arduino/save-serial-data-to-a-text-file-arduino-processing-putty (abgerufen am 03.07.2023)
