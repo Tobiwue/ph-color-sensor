@@ -128,9 +128,9 @@ In einer idealen Anwendung könnten zusätzlich zu den Überprüfungen der aktue
 
 [^5]: OpenAI (2023, 03. Juli). Abwandlung der Antwort auf die Frage: *Wie könnte ein Python Programm aussehen, dass auf COM10 hört und alle Daten, die dort eingehen, über einen Websocket Server abrufbrar macht.*
 
-[^6] Pajak, D. & Mistry, S. (2019, 07. November). *FruitToEmoji-GIT.ipynb.* URL: https://colab.research.google.com/github/arduino/ArduinoTensorFlowLiteTutorials/blob/master/FruitToEmoji/FruitToEmoji.ipynb (abgerufen 16.07.2023)
+[^6]: Pajak, D. & Mistry, S. (2019, 07. November). *FruitToEmoji-GIT.ipynb.* URL: https://colab.research.google.com/github/arduino/ArduinoTensorFlowLiteTutorials/blob/master/FruitToEmoji/FruitToEmoji.ipynb (abgerufen 16.07.2023)
 
-[^7] Tensorflow (o. D.). *Keras: The high-level API for TensorFlow.* URL: https://www.tensorflow.org/guide/keras (16.07.2023)
+[^7]: Tensorflow (o. D.). *Keras: The high-level API for TensorFlow.* URL: https://www.tensorflow.org/guide/keras (16.07.2023)
 
 [^8]: PrimeReact (o. D.). *Button.* URL: https://primereact.org/button/ (abgerufen am 19.06.2023)
 
