@@ -18,7 +18,7 @@ const Pflanzen_Ansicht = () => {
     let card_title = "";
     let card_text = "";
     const [loading, setLoading] = useState(true);
-    const [elements, setElements] = useState(<ProgressSpinner/>);
+    const [elements, setElements] = useState(<div className="text-center"><ProgressSpinner/></div>);
 
     function bewerte() {
         const min = parseFloat(ideal_min.replace(",", "."));
@@ -61,14 +61,13 @@ const Pflanzen_Ansicht = () => {
             if (loading === true) {
                 setTimeout(function () {
 
-                    console.log(ph_gemessen);
                     setElements(
                         <div className="flex flex-column card-container green-container row-gap-3 text-justify">
 
                             Der ideale PH-Wert der Pflanze "{location.state.name}" liegt
                             zwischen {ideal_min} und {ideal_max}.
                             Demnach
-                            ist ein gemessener PH-Wert von {ph_gemessen} {bewerte()}.
+                            ist ein gemessener PH-Wert von {ph_gemessen.replace(".", ",")} {bewerte()}.
 
                             <Card title={card_title} className={bewertung}>
                                 {card_text}
