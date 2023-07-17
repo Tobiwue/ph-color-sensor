@@ -6,7 +6,7 @@ Im Rahmen des Moduls 'Methoden der Wissensverarbeitung' im Wirtschaftsinformatik
 Zusätzlich wurde sich darauf festgelegt, diese Messungen an Bodenproben durchzuführen, um Pflanzen die perfekte Grundlage zum Wachsen bieten zu können.
 
 ## 1.2 Zielsetzung
-Durch ein Messgerät welches mit einem Arduino gekoppelt ist, soll der PH Wert gemessen und mit einem in einer Datenbank hinterlegtem Idealwert abgeglichen werden. Der Benutzer bekommt daraufhin das Feedback, wie sich der PH-Wert des Bodens seiner Pflanze. Aufgrund des Feedbacks weis der Benutzer dann ob Handlungsbedarf besteht. Dieses Feedback soll in einem simulierten Smartphone zurückgegeben werden.
+Durch ein Messgerät welches mit einem Arduino gekoppelt ist, soll der PH Wert gemessen und mit einem in einer Datenbank hinterlegtem Idealwert abgeglichen werden. Der Benutzer bekommt daraufhin das Feedback, wie sich der PH-Wert des Bodens seiner Pflanze. Aufgrund des Feedbacks weis der Benutzer dann ob Handlungsbedarf besteht. Dieses Feedback soll in einem simulierten Smartphone zurückgegeben werden. Ziel ist dabei zu prüfen, ob der Farbsensor so akkurat ist, dass er für diesen Zweck verwendet werden kann.
 
 ## 1.3 Vorgehensweise
 Zuerst wurden verschiedene Messungsmöglichkeiten betrachtet. In Rücksprache mit den Dozenten wurde ein Messgerät genutzt, welches mit einem Arduino Nano Every verbunden werden konnte. Dieses Messgerät erwies sich nach ausgiebigen Versuchen jedoch als fehlerhaft. Nachdem ein Großteil der Bearbeitungszeit damit verbracht wurde, hinreichende Daten durch das Messgerät zu erhalten, was leider nicht möglich war, wurde sich entschieden, die ursprüngliche Projektidee anzupassen. Mittels des eingebauten Farbsensors in dem Arduino Sense 33 BLE werden nun Farben ausgewertet, welche analoge PH-Teststreifen jeweils zurückgeben. Damit ist es möglich, durch bestimmte Farben festzustellen, welcher PH Wert die jeweilige Erdprobe nachweist. Der Arduino wird hierbei mittels Machine Learning darauf trainiert, bei verschiedenen Inputs den passenden Output zu liefern.
@@ -33,9 +33,7 @@ Weiterhin läuft auf dem PC ein React-Programm, dass über den Localhost und Por
 
 # 4 Setup
 ## 4.1 Hardware
-Zur Realisierung des Projektes wurde ein Arduino Nano 33 BLE Sense verwendet.
-Dieser weist eine Reihe von Sensoren auf, unter anderem der von uns benutzte Farbsensor.
-Außerdem verwendeten wir noch ein Notebook für das Programmieren und die Simulation des Smartphones
+Zur Realisierung des Projektes wurde ein Arduino Nano 33 BLE Sense verwendet. Dieser weist eine Reihe von Sensoren auf, unter anderem der verwendete Farbsensor. Außerdem wurde ein Notebook für das Programmieren und die Simulation des Smartphones verwendet und ein USB-Kabel für die Datenübertragung von dem Arduino zu dem Notebook.
 
 ## 4.2 Software
 Die Programme wurden wie bereits erwähnt in verschiedenen Programmiersprachen geschrieben.
@@ -45,12 +43,12 @@ Für die Datenaufnahme der PH-Farbwerte wurde das Programm object_color_capture.
 Für die Datenaufbereitung wurde die FruitToEmoji Google Colaboratory Seite https://colab.research.google.com/github/arduino/ArduinoTensorFlowLiteTutorials/blob/master/FruitToEmoji/FruitToEmoji.ipynb
 verwendet. Auf der Google Colaboratory Seite konnten die vorher erstellten csv Dateien hochgeladen werden und werden aufbereitet. Dabei werden eventuelle NULL Werte entfernt und die Menge an Daten werden für die einzelnen Skalenwerte gespeichert. Außerdem werden die Werte randomisiert, um den Lerneffekt der später verwendeten API zu verstärken. 
 
-Die nun aufbereiteten Daten können nun durch die [Keras API]([url](https://www.tensorflow.org/guide/keras)) verarbeitet werden und können in ein, durch den Arduino auslesbares, Model geschrieben werden. Dafür haben wir die Epochen Anzahl auf 600 und die Batchzahl auf 10 erhöht, um ein opimales Ergebnis zu erreichen. Durchschnittlich haben wir mit ~500 Werten pro CSV Datei gearbeitet. 
+Die nun aufbereiteten Daten können nun durch die [Keras API]([url](https://www.tensorflow.org/guide/keras)) verarbeitet werden und können in ein, durch den Arduino auslesbares, Model geschrieben werden. Dafür wurde die Epochen-Anzahl auf 600 und die Batchzahl auf 10 erhöht, um ein opimales Ergebnis zu erreichen. Durchschnittlich wurde mit ~500 Werten pro CSV Datei gearbeitet. 
 
 Anschließend kann nun das Model getestet und als Plot ausgegeben werden, dies wird auch in der Google Colaboratory Seite getan.
 Danach kann das trainierte Model in ein Tensorflow Lite Format konvertiert werden, damit der Arduino und die Software zum Auswerten der Analysierten PH Werte mit den Daten arbeiten kann. Und zum Schluss muss nur noch ein Arduino Header aus dem Model generiert werde. Dies kann auch mit der Google Colaboratory Seite erstellt werden.
 
-Nun haben wir die object_color_classify.ino aus dem [TensorFlowLiteTutorials Github]([url](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/FruitToEmoji)) angepasst und auf unseren Arduino geladen.
+Nun konnte die object_color_classify.ino aus dem [TensorFlowLiteTutorials Github]([url](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/FruitToEmoji)) angepasst und auf den Arduino geladen werden.
 Da zwischenzeitlich einige Librarys des TensorflowLite den Ordnerpfad geändert haben und Namen teilweise auch verändert wurde, musste die object_color_classify.ino dahingehend angepasst werden. Außerdem mussten die nun neu hinzugefügten Ergebnisse, das ursprüngliche Programm war nur für den Vergleich zwischen drei Farben ausgelegt, eingepflegt werden und korrekt im Serial Monitor ausgegeben werden.
 
 Die Webapp zur Simulation des Smartphones beinhaltet *React.js* und somit JavaScript, CSS und HTML. Es wurden weiterhin die Pakete *PrimeReact* für Designkomponenten[^6] [^7] [^8] [^9] [^10] [^11] [^12] und *react-router-dom* für die Erstellung der WebApp als Single Page Application[^13] [^14] verwendet. 
@@ -75,9 +73,9 @@ Die Screenshots der App zeigen die Darstellung von Hinweisen für verschiedene P
 
 Die Dauer des gesamten Prozesses hängt von verschiedenen Faktoren ab, darunter die Reaktionszeit der App und die Geschwindigkeit der Datenverarbeitung. Obwohl keine großen Datenmengen verarbeitet werden müssen, wurde bewusst ein Ladesymbol implementiert, das für eine bestimmte Zeit von drei Sekunden angezeigt wird, bevor die Ergebnisseite geladen wird. Diese Entscheidung wurde getroffen, um sicherzustellen, dass während dieser Zeit der pH-Streifen klar über den Sensor gehalten werden kann und der Farbwert so genau wie möglich ermittelt werden kann. Indem eine angemessene Wartezeit eingerichtet wird, wird ermöglicht, dass die Datenverarbeitung abgeschlossen wird und genügend Zeit für eine genaue Auswertung der pH-Werte zur Verfügung steht.
 
-Die App ist ................ akkurat?
+Die Farbmessung mit dem Farbsensor des Arduino ist relativ akkurat. Großen Einfluss auf ein einheitlichen akkurates Ergebnis hat dabei, wie einheitlich die Farbe auf dem Teststreifen ist. Ist diese beispielsweise ein wenig verblasst oder befindet sich Erde auf dem Teststreifen, so beeinflusst dies das Testergebnis. Dennoch ist es möglich ein gutes Ergebnis bei der Analyse des PH-Werts zu erzielen. 
 
-# 6 Geäuse - Wearable
+# 6 Gehäuse - Wearable
 Mit der App Shapr3D wurde ein Case entwickelt, welche es ermöglicht den Arduino wie ein Wearable bei sich zu haben.
 Der Arduino wird in das Gehäuse hineingesteckt und sollte durch die genauen Abmaße fest sitzen.
 Durch wiederholtes Herausnehmen kann es jedoch zu Materialermüdung kommen, wodurch der Arduino leichter herausrutschen könnte.
@@ -93,21 +91,13 @@ Alternativ könnte noch eine Art Deckel entworfen werden, mit einem Vergrößeru
 
 # 7 Troubleshooting
 ## 7.1 Microcontroller
-Für das vorherige Messgerät stellte sich heraus, dass der Arduino scheinbar nicht in der Lage war, das Gerät zu betreiben.
-Nachdem wir dann einige Arduinos ausprobiert haben, entschieden wir uns für einen mit 5V Output.
+Für das vorherige Messgerät stellte sich heraus, dass der verwendete Arduino nicht in der Lage war, dieses Gerät zu betreiben. Nachdem daraufhin einige Arduinos ausprobiert wurden, wurde entschieden, einen Arduino-Microcontroller mit 5V Output zu verwenden.
 
 ## 7.2 Messgeräte
-Zu Beginn hatten wir ein Messgerät verwendet.
-Dieses erwies sich allerdings nach vielem Testen als fehlerhaft.
-Der Fehler bestand darin, dass das Gerät nur einen Wert dauerhaft ausgegeben hat.
-
--Benutzeranleitung nur in Chinesisch und für bauähnliche Geräte
--Benutzeranleitung nicht mitgeliefert
+Zu Beginn wurde ein PH-Sensor-Modul verwendet. Dieses erwies sich allerdings nach vielem Testen als fehlerhaft. Der Fehler bestand darin, dass das Gerät nur einen Wert dauerhaft ausgegeben hat. Da weiterhin keine Benutzeranleitung mitgeliefert wurde und diese online nur auf chinesich und für bauähnliche Geräte gefunden werden konnte, war es nicht möglich, dieses PH-Sensor-Modul weiter zu verwenden.
 
 ## 7.3 Librarys
-Bei dem Arduino BLE 33 Sense mussten wir feststellen, dass für unseren vorherigen Plan leider keine Kompatibilität zu den Libraries bestand.
-Wir haben also durch die inkompatiblen Libraries unsere USB-Ports überschrieben, wodurch der Arduino die Kommunikation mit dem PC verloren hat.
-Dadurch war dieser nicht mehr zu gebrauchen.
+Bei dem Arduino BLE 33 Sense wurde festgestellt, dass für das vorherige Projektziel leider keine Kompatibilität zu den Libraries bestand. Demnach wurden durch die inkompatiblen Libraries die USB-Ports überschrieben, wodurch der Arduino jeweils die Kommunikation mit dem PC verloren hatte. Dadurch konnte dieser nicht mehr verwendet werden.
 
 ## 7.4 Dateiformate und -übertragung
 Für die Integration der vom Arduino erfassten Sensordaten in die Webanwendung waren verschiedene Aspekte zu berücksichtigen, darunter der Übertragungsweg und das Datenformat. Eine anfängliche Idee bestand darin, die Daten an einen Server zu senden, z. B. einen lokalen Express-Server von Node.js. Allerdings stellte sich die Umsetzung dieser Lösung als schwierig heraus. Die Applikation wurde zwar ebenso über den lokalen Server gehostet, das Grundgerüst der Navigierung zwischen den verschiedenen Ansichten und der Datenübertragung innerhalb der Applikation erfolgte über Funktionen des Pakets *react-router-dom*, welche nicht mehr nutzbar waren, da sie über URLs ihre Funktionalität erfüllt hatten. Da der Server selbst über URLs arbeitete, beispielsweise für POST- oder GET-Anfragen, konnte er die Navigation-URLs nicht auflösen. Angesichts der begrenzten verfügbaren Zeit wurde daher eine alternative Lösung in Betracht gezogen.
