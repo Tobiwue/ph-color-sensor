@@ -1,0 +1,223 @@
+Pflanze;PH_MIN;PH_MAX
+Basilikum;5,5;6,5
+Dill;5;6,5
+Majoran;6;8
+Oregano;6;7
+Petersilie;5,5;7
+Pfefferminze;6;7,5
+Rosmarin;5;6
+Salbei;6;7,5
+Thymian;5,5;7
+Artischocke;6,5;7,5
+Aubergine;6;7
+Blumenkohl;6;7,5
+Bohnen;6;7,5
+Brokkoli;6;7
+Brunnenkresse;5,5;7,5
+Chicoree;5;6,5
+Chili (Peperoni);5,5;6,5
+Chinakohl;6;7
+Endivien;6;7,5
+Erbsen;6;7,5
+Feldsalat;6,5;7,5
+Fenchel;5;6
+Grünkohl;6;7
+Gurken;5,5;7
+Ingwer;6;7
+Kartoffeln;5;7
+Knoblauch;6,5;7,5
+Kohlrabi;6,5;7,5
+Kopfsalat;5,5;7,5
+Kürbis;5,5;7,5
+Kresse;6;7
+Mais;6;7
+Mangold;6;7,5
+Möhren;6;7,5
+Pak Choi;6,5;7
+Paprika;5,5;6,5
+Porree;6;7,5
+Radicchio;6;6,8
+Radieschen & Rettich;5,5;7
+Rosenkohl;6;7,5
+Rote Bete;6;7,5
+Schalotten;5,5;7,5
+Schnittlauch;6;7
+Schwarzwurzeln;6,5;7,5
+Spargel;5,5;7
+Spinat;5,5;7,5
+Sellerie;6;7,5
+Steckrübe;6,8;7,5
+Süßkartoffel;5,5;6
+Tomaten;6,5;7,5
+Weißkohl, Rotkohl & Wirsing;6;7,5
+Winterrettich;5;6,5
+Zucchini;6,5;7,5
+Zwiebeln;6,5;7,5
+Äpfel;6;7
+Aprikosen;6;7
+Birnen;6;7
+Erdbeeren;6,5;7,5
+Heidelbeeren und Preiselbeeren;4,5;6,5
+Himbeeren & Brombeeren;5,5;6,5
+Blaubeere;4;5,5
+Johannisbeeren (schwarz & weiß);6;7,5
+Johannisbeeren rot;5,5;7
+Pfirsich;6;7,5
+Pflaumen;6;7,5
+Rhabarber;5,5;7
+Sauerkirschen;5,5;6,5
+Stachelbeere amerikanisch;5;6,5
+Stachelbeere europäisch;6;7,5
+Süßkirschen;6,5;7,5
+Quitten;6;7,5
+Weinreben;6;7
+Haselnuss;6;7
+Walnuss;6;7,5
+Eiben;5,5;7
+Fichten & Tannen;5,5;6,5
+Kiefer & Lärchen;5,5;7
+Lebensbäume (Thuja);6;7
+Wacholder;5,5;6,5
+Weymouthskiefer;4,5;6
+Zeder weiß;4,5;5,5
+Zeder virginisch;5,5;7
+Zypressen;5,5;6,5
+Ahorn;6;7,5
+Birke;5;6
+Buche;6;7,5
+Eiche;5;6
+Flieder;5,5;6,5
+Forsythie;6;7
+Kastanie;5;6
+Liguster;6;7,5
+Linde;6;7,5
+Magnolie;5,5;7
+Pappel;5,5;7,5
+Platane;6;7,5
+Robinie;6;7,5
+Rose;6;7,5
+Trauerweide;5;6
+Weide;5,5;7,5
+Abelien;6;8
+Akazie;6;8
+Adonisröschen;6;8
+Akelei;6,5;8,5
+Alpenveilchen;6;7
+Alpen-Edelweiß;6,5;7,5
+Amaryllis;5,5;6,5
+Amerikanische Pampasgras;6;8
+Anemonen;6,5;7,5
+Arnika;5;6,5
+Astern;5;7
+Azaleen;4;5,5
+Ballonblume;6;6,5
+Begonien;5,5;6,5
+Bergenien;6;7,5
+Berglorbeer;4,5;6
+Besenheide;4;6
+Blaukissen;6;7,5
+Blausterne;6;7,5
+Bleiwurz;5,5;6,5
+Bougainvillea;5,5;7,5
+Brandschopf;6;7
+Braunellen;6;7,5
+Bromelien;5;6
+Bubikopf;5;6
+Buchsbaum;6;7
+Christusdorn;6;7,5
+Chrysantheme;6;7
+Cineraria;5,5;7
+Cistus;6;7,5
+Clarkia;6;6,5
+Coleus;6;7
+Convolvulus;6;8
+Chrysanthemen;6,5;6,8
+Clematis;5,5;6,5
+Dahlien;6;7,5
+Dreimasterblumen;5;6
+Ehrenpreis;5,5;6,5
+Efeu;6;7,5
+Eibisch;6;7,5
+Europäische Pfeifenstrauch;6;7
+Erika;4,5;6,5
+Farne;4,5;5,5
+Fetthennen;6;8
+Fingerhirse;6;7
+Flamingoblumen;5;6
+Flammenblumen;5;6,5
+Fleißige Lieschen;5,5;6,5
+Flockenblumen;5;6,5
+Forsythien;6;8
+Fuchsien;5,5;6,5
+Gardenien;5;6
+Gazanien;5,5;7
+Gänseblümchen;6,5;7
+Geranien;5,5;6
+Ginster;6,5;7,5
+Gipskräuter;6;7,5
+Glockenblumen;5,5;6,5
+Goldregen;6.0;7.0
+Goldruten;5;7
+Grüne Minze;5,5;7,5
+Günsel;4;6
+Gladiolen;6,5;7
+Heidekraut;4,5;6
+Hibiskus;6;7
+Hornkräuter;6;7
+Hortensien;4;4,5
+Hyazinthen;6;7
+Iris;6,5;7,5
+Jasmin;5,5;7
+Kamelie;4;5,5
+Klivie;6,5;7
+Kokardenblumen;6;7,5
+Kornblumen;6;7,5
+Köcherblümchen;6;7,5
+Krokusse;6;8
+Lilien;6,5;7,5
+Löwenmäulchen;5,5;7
+Lupinen;5,5;7
+Maiglöckchen;4,5;6
+Moos;6;8
+Narzissen;6;7,5
+Nelken;6;7,5
+Nieswurz;6;7,5
+Ochsenzungen;6;7,5
+Oleander;6;7,5
+Orchideen;4,5;5,5
+Osterglocken;6;7
+Osterlilien;6;7
+Pantoffelblumen;6;7
+Passionsblumen;6;8
+Petunien;6;7,5
+Pfingstrosen;6;7,5
+Prärielilien;6;8
+Primeln;6;7,5
+Quitte;6;7,5
+Rhododendron;4;5,5
+Ringelblume;5,5;7
+Raps;6,5;7,5
+Rittersporn;6;7,5
+Rosen;5,5;7
+Schleifenblumen;6;7,5
+Schneeglöckchen;6;8
+Schwertlilien;5;6,5
+Sonnenblumen;6;7,5
+Sonnenwenden;6;8
+Steinbrech;6;8
+Steckrosen;6;8
+Stiefmütterchen;5,5;7
+Strauchmargerite;6;7,5
+Studentenblume;5;7,5
+Sukkulenten;5;6,5
+Tamarisken;6,5;8
+Tränendes Herz;6;7,5
+Tulpen;6;7
+Usambaraveilchen;4,5;5,5
+Veilchen;5,5;6,5
+Vergißmeinnicht;6;7
+Wachsblume;6,5;7
+Waldmeister;4;6
+Weihnachtskaktus;5;6
+Zierspargel;6;7
+Zinnien;5,5;7,5
